@@ -69,8 +69,9 @@
     NSNumber *altitude = [NSNumber numberWithDouble:self.location.altitude];
     
     #if (TARGET_IPHONE_SIMULATOR)
-    altitude = [NSNumber numberWithDouble:4122];
+    altitude = [NSNumber numberWithDouble:4122.1];
     #endif
+    
     
     // Format altitude
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -96,6 +97,9 @@
     } else {
         verticalAccuracyString = [NSString stringWithFormat:@"+/- %f m", self.location.verticalAccuracy];
     }
+    #if (TARGET_IPHONE_SIMULATOR)
+    verticalAccuracyString = @"+/- 5.000000 m";
+    #endif
     
     // Update UI
 
@@ -105,6 +109,9 @@
     [self updateProgressBar: self.horizontalAccuracyProgress withAccuracy:self.location.horizontalAccuracy];
     [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:self.location.verticalAccuracy];
     
+    #if (TARGET_IPHONE_SIMULATOR)
+    [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:5];
+    #endif
     
     self.alitudeLabel.attributedText = altitudeString;
     self.coordsLabel.text = [NSString stringWithFormat:@"%f %f", self.location.coordinate.latitude, self.location.coordinate.longitude];
