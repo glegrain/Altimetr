@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F931CF33190910D300D92AB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF32190910D300D92AB4 /* Foundation.framework */; };
+		F931CF35190910D300D92AB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF34190910D300D92AB4 /* CoreGraphics.framework */; };
+		F931CF37190910D300D92AB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF36190910D300D92AB4 /* UIKit.framework */; };
+		F931CF3D190910D300D92AB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F931CF3B190910D300D92AB4 /* InfoPlist.strings */; };
+		F931CF3F190910D300D92AB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF3E190910D300D92AB4 /* main.m */; };
+		F931CF43190910D300D92AB4 /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF42190910D300D92AB4 /* ALAppDelegate.m */; };
+		F931CF46190910D300D92AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F931CF44190910D300D92AB4 /* Main.storyboard */; };
+		F931CF49190910D300D92AB4 /* ALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF48190910D300D92AB4 /* ALViewController.m */; };
+		F931CF4B190910D300D92AB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F931CF4A190910D300D92AB4 /* Images.xcassets */; };
+		F931CF52190910D300D92AB4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF51190910D300D92AB4 /* XCTest.framework */; };
+		F931CF53190910D300D92AB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF32190910D300D92AB4 /* Foundation.framework */; };
+		F931CF54190910D300D92AB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF36190910D300D92AB4 /* UIKit.framework */; };
+		F931CF5C190910D300D92AB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F931CF5A190910D300D92AB4 /* InfoPlist.strings */; };
+		F931CF5E190910D300D92AB4 /* AltimeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF5D190910D300D92AB4 /* AltimeterTests.m */; };
+		F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF671909118800D92AB4 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F931CF55190910D300D92AB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F931CF27190910D300D92AB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F931CF2E190910D300D92AB4;
+			remoteInfo = Altimeter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F931CF2F190910D300D92AB4 /* Altimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Altimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F931CF32190910D300D92AB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F931CF34190910D300D92AB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F931CF36190910D300D92AB4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F931CF3A190910D300D92AB4 /* Altimeter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Altimeter-Info.plist"; sourceTree = "<group>"; };
+		F931CF3C190910D300D92AB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F931CF3E190910D300D92AB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F931CF40190910D300D92AB4 /* Altimeter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Altimeter-Prefix.pch"; sourceTree = "<group>"; };
+		F931CF41190910D300D92AB4 /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
+		F931CF42190910D300D92AB4 /* ALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAppDelegate.m; sourceTree = "<group>"; };
+		F931CF45190910D300D92AB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F931CF47190910D300D92AB4 /* ALViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALViewController.h; sourceTree = "<group>"; };
+		F931CF48190910D300D92AB4 /* ALViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALViewController.m; sourceTree = "<group>"; };
+		F931CF4A190910D300D92AB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F931CF50190910D300D92AB4 /* AltimeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltimeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F931CF51190910D300D92AB4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F931CF59190910D300D92AB4 /* AltimeterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AltimeterTests-Info.plist"; sourceTree = "<group>"; };
+		F931CF5B190910D300D92AB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F931CF5D190910D300D92AB4 /* AltimeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltimeterTests.m; sourceTree = "<group>"; };
+		F931CF671909118800D92AB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F931CF2C190910D300D92AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */,
+				F931CF35190910D300D92AB4 /* CoreGraphics.framework in Frameworks */,
+				F931CF37190910D300D92AB4 /* UIKit.framework in Frameworks */,
+				F931CF33190910D300D92AB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F931CF4D190910D300D92AB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF52190910D300D92AB4 /* XCTest.framework in Frameworks */,
+				F931CF54190910D300D92AB4 /* UIKit.framework in Frameworks */,
+				F931CF53190910D300D92AB4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F931CF26190910D300D92AB4 = {
+			isa = PBXGroup;
+			children = (
+				F931CF38190910D300D92AB4 /* Altimeter */,
+				F931CF57190910D300D92AB4 /* AltimeterTests */,
+				F931CF31190910D300D92AB4 /* Frameworks */,
+				F931CF30190910D300D92AB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F931CF30190910D300D92AB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF2F190910D300D92AB4 /* Altimeter.app */,
+				F931CF50190910D300D92AB4 /* AltimeterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F931CF31190910D300D92AB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF671909118800D92AB4 /* CoreLocation.framework */,
+				F931CF32190910D300D92AB4 /* Foundation.framework */,
+				F931CF34190910D300D92AB4 /* CoreGraphics.framework */,
+				F931CF36190910D300D92AB4 /* UIKit.framework */,
+				F931CF51190910D300D92AB4 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F931CF38190910D300D92AB4 /* Altimeter */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF41190910D300D92AB4 /* ALAppDelegate.h */,
+				F931CF42190910D300D92AB4 /* ALAppDelegate.m */,
+				F931CF44190910D300D92AB4 /* Main.storyboard */,
+				F931CF47190910D300D92AB4 /* ALViewController.h */,
+				F931CF48190910D300D92AB4 /* ALViewController.m */,
+				F931CF4A190910D300D92AB4 /* Images.xcassets */,
+				F931CF39190910D300D92AB4 /* Supporting Files */,
+			);
+			path = Altimeter;
+			sourceTree = "<group>";
+		};
+		F931CF39190910D300D92AB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF3A190910D300D92AB4 /* Altimeter-Info.plist */,
+				F931CF3B190910D300D92AB4 /* InfoPlist.strings */,
+				F931CF3E190910D300D92AB4 /* main.m */,
+				F931CF40190910D300D92AB4 /* Altimeter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F931CF57190910D300D92AB4 /* AltimeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF5D190910D300D92AB4 /* AltimeterTests.m */,
+				F931CF58190910D300D92AB4 /* Supporting Files */,
+			);
+			path = AltimeterTests;
+			sourceTree = "<group>";
+		};
+		F931CF58190910D300D92AB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F931CF59190910D300D92AB4 /* AltimeterTests-Info.plist */,
+				F931CF5A190910D300D92AB4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F931CF2E190910D300D92AB4 /* Altimeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F931CF61190910D300D92AB4 /* Build configuration list for PBXNativeTarget "Altimeter" */;
+			buildPhases = (
+				F931CF2B190910D300D92AB4 /* Sources */,
+				F931CF2C190910D300D92AB4 /* Frameworks */,
+				F931CF2D190910D300D92AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Altimeter;
+			productName = Altimeter;
+			productReference = F931CF2F190910D300D92AB4 /* Altimeter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F931CF4F190910D300D92AB4 /* AltimeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F931CF64190910D300D92AB4 /* Build configuration list for PBXNativeTarget "AltimeterTests" */;
+			buildPhases = (
+				F931CF4C190910D300D92AB4 /* Sources */,
+				F931CF4D190910D300D92AB4 /* Frameworks */,
+				F931CF4E190910D300D92AB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F931CF56190910D300D92AB4 /* PBXTargetDependency */,
+			);
+			name = AltimeterTests;
+			productName = AltimeterTests;
+			productReference = F931CF50190910D300D92AB4 /* AltimeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F931CF27190910D300D92AB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Guillaume Legrain";
+				TargetAttributes = {
+					F931CF4F190910D300D92AB4 = {
+						TestTargetID = F931CF2E190910D300D92AB4;
+					};
+				};
+			};
+			buildConfigurationList = F931CF2A190910D300D92AB4 /* Build configuration list for PBXProject "Altimeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F931CF26190910D300D92AB4;
+			productRefGroup = F931CF30190910D300D92AB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F931CF2E190910D300D92AB4 /* Altimeter */,
+				F931CF4F190910D300D92AB4 /* AltimeterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F931CF2D190910D300D92AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF4B190910D300D92AB4 /* Images.xcassets in Resources */,
+				F931CF3D190910D300D92AB4 /* InfoPlist.strings in Resources */,
+				F931CF46190910D300D92AB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F931CF4E190910D300D92AB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF5C190910D300D92AB4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F931CF2B190910D300D92AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF3F190910D300D92AB4 /* main.m in Sources */,
+				F931CF49190910D300D92AB4 /* ALViewController.m in Sources */,
+				F931CF43190910D300D92AB4 /* ALAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F931CF4C190910D300D92AB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F931CF5E190910D300D92AB4 /* AltimeterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F931CF56190910D300D92AB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F931CF2E190910D300D92AB4 /* Altimeter */;
+			targetProxy = F931CF55190910D300D92AB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F931CF3B190910D300D92AB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F931CF3C190910D300D92AB4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F931CF44190910D300D92AB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F931CF45190910D300D92AB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F931CF5A190910D300D92AB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F931CF5B190910D300D92AB4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F931CF5F190910D300D92AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos7.0;
+			};
+			name = Debug;
+		};
+		F931CF60190910D300D92AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos7.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F931CF62190910D300D92AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
+				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F931CF63190910D300D92AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
+				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F931CF65190910D300D92AB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Altimeter.app/Altimeter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AltimeterTests/AltimeterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F931CF66190910D300D92AB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Altimeter.app/Altimeter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
+				INFOPLIST_FILE = "AltimeterTests/AltimeterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F931CF2A190910D300D92AB4 /* Build configuration list for PBXProject "Altimeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F931CF5F190910D300D92AB4 /* Debug */,
+				F931CF60190910D300D92AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F931CF61190910D300D92AB4 /* Build configuration list for PBXNativeTarget "Altimeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F931CF62190910D300D92AB4 /* Debug */,
+				F931CF63190910D300D92AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F931CF64190910D300D92AB4 /* Build configuration list for PBXNativeTarget "AltimeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F931CF65190910D300D92AB4 /* Debug */,
+				F931CF66190910D300D92AB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F931CF27190910D300D92AB4 /* Project object */;
+}
