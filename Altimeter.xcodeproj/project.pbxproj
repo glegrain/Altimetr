@@ -22,6 +22,8 @@
 		F931CF5C190910D300D92AB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F931CF5A190910D300D92AB4 /* InfoPlist.strings */; };
 		F931CF5E190910D300D92AB4 /* AltimeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF5D190910D300D92AB4 /* AltimeterTests.m */; };
 		F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF671909118800D92AB4 /* CoreLocation.framework */; };
+		F9DA230A1928FE530054F528 /* ALAltitudeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DA23091928FE530054F528 /* ALAltitudeFormatter.m */; };
+		F9DA230C192903850054F528 /* ALAltitudeFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DA230B192903850054F528 /* ALAltitudeFormatterTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		F931CF5B190910D300D92AB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F931CF5D190910D300D92AB4 /* AltimeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltimeterTests.m; sourceTree = "<group>"; };
 		F931CF671909118800D92AB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F9DA23081928FE530054F528 /* ALAltitudeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAltitudeFormatter.h; sourceTree = "<group>"; };
+		F9DA23091928FE530054F528 /* ALAltitudeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAltitudeFormatter.m; sourceTree = "<group>"; };
+		F9DA230B192903850054F528 /* ALAltitudeFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALAltitudeFormatterTest.m; path = ../Altimeter/ALAltitudeFormatterTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,8 @@
 				F931CF44190910D300D92AB4 /* Main.storyboard */,
 				F931CF47190910D300D92AB4 /* ALViewController.h */,
 				F931CF48190910D300D92AB4 /* ALViewController.m */,
+				F9DA23081928FE530054F528 /* ALAltitudeFormatter.h */,
+				F9DA23091928FE530054F528 /* ALAltitudeFormatter.m */,
 				F931CF4A190910D300D92AB4 /* Images.xcassets */,
 				F931CF39190910D300D92AB4 /* Supporting Files */,
 			);
@@ -141,6 +148,7 @@
 		F931CF57190910D300D92AB4 /* AltimeterTests */ = {
 			isa = PBXGroup;
 			children = (
+				F9DA230B192903850054F528 /* ALAltitudeFormatterTest.m */,
 				F931CF5D190910D300D92AB4 /* AltimeterTests.m */,
 				F931CF58190910D300D92AB4 /* Supporting Files */,
 			);
@@ -255,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F931CF3F190910D300D92AB4 /* main.m in Sources */,
+				F9DA230A1928FE530054F528 /* ALAltitudeFormatter.m in Sources */,
 				F931CF49190910D300D92AB4 /* ALViewController.m in Sources */,
 				F931CF43190910D300D92AB4 /* ALAppDelegate.m in Sources */,
 			);
@@ -265,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F931CF5E190910D300D92AB4 /* AltimeterTests.m in Sources */,
+				F9DA230C192903850054F528 /* ALAltitudeFormatterTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "ALViewController.h"
+#import "ALAltitudeFormatter.h"
 
 @interface ALViewController ()
 
@@ -72,6 +73,8 @@
     altitude = [NSNumber numberWithDouble:4122.1];
     #endif
     
+    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
+    NSMutableAttributedString *output = [altitudeFormatter mutableAttributtedStringFromLocationDistance:0];
     
     // Format altitude
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
@@ -83,8 +86,6 @@
     NSString *altitudeStr = [NSString stringWithFormat:@"%@ m",[numberFormatter stringFromNumber:altitude]];
 
     
-    
-   
     // make decimal part smaller
     NSMutableAttributedString *altitudeString = [[NSMutableAttributedString alloc]initWithString:altitudeStr];
     [altitudeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(altitudeStr.length - 4, 2)];
@@ -169,6 +170,7 @@
     [self.coordsLabel endEditing:YES];
     [super touchesBegan:touches withEvent:event];
 }
+
 
 
 @end
