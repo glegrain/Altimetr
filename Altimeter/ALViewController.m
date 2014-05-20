@@ -66,29 +66,10 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.location = [locations lastObject];
-    
-    NSNumber *altitude = [NSNumber numberWithDouble:self.location.altitude];
-    
-    #if (TARGET_IPHONE_SIMULATOR)
-    altitude = [NSNumber numberWithDouble:4122.1];
-    #endif
-    
-    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
-    NSMutableAttributedString *output = [altitudeFormatter mutableAttributtedStringFromLocationDistance:0];
-    
-    // Format altitude
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setMaximumFractionDigits:1];
-    [numberFormatter setUsesGroupingSeparator:YES];
-    [numberFormatter setGroupingSeparator:@" "];
-    [numberFormatter setGroupingSize:3];
-    
-    NSString *altitudeStr = [NSString stringWithFormat:@"%@ m",[numberFormatter stringFromNumber:altitude]];
 
-    
-    // make decimal part smaller
-    NSMutableAttributedString *altitudeString = [[NSMutableAttributedString alloc]initWithString:altitudeStr];
-    [altitudeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(altitudeStr.length - 4, 2)];
+    // Format altitude
+    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
+    NSMutableAttributedString *altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:self.location.altitude];
     
     // negative value in accuracy indicates that the altitude value is invalid.
     // Accuracy is in meters.
@@ -103,7 +84,7 @@
     #endif
     
     // Update UI
-
+    
     self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"Vertical accuracy: %@", verticalAccuracyString];
     self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"Horizontal accuracy: +/- %f m", self.location.horizontalAccuracy];
 
@@ -112,6 +93,7 @@
     
     #if (TARGET_IPHONE_SIMULATOR)
     [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:5];
+    altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:1002];
     #endif
     
     self.alitudeLabel.attributedText = altitudeString;

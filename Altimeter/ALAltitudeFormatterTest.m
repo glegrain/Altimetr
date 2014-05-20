@@ -49,4 +49,29 @@
     XCTAssert([output  isEqualToAttributedString:expected], @"Expected %@ to be %@", output, expected);
 }
 
+- (void)test4122Meters
+{
+    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
+    NSMutableAttributedString *output = [altitudeFormatter mutableAttributtedStringFromLocationDistance:4122];
+    NSMutableAttributedString *expected = [[NSMutableAttributedString alloc] initWithString:@"4 122 m"];
+    XCTAssert([output  isEqualToAttributedString:expected], @"Expected %@ to be %@", output, expected);
+}
+
+- (void)test4122dot1Meters
+{
+    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
+    NSMutableAttributedString *output = [altitudeFormatter mutableAttributtedStringFromLocationDistance:4122.1];
+    NSMutableAttributedString *expected = [[NSMutableAttributedString alloc] initWithString:@"4 122.1 m"];
+    [expected addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(5, 2)];
+    XCTAssert([output  isEqualToAttributedString:expected], @"Expected %@ to be %@", output, expected);
+}
+
+- (void)test1000dot1Meters
+{
+    ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
+    NSMutableAttributedString *output = [altitudeFormatter mutableAttributtedStringFromLocationDistance:1000.1];
+    NSMutableAttributedString *expected = [[NSMutableAttributedString alloc] initWithString:@"1 000.1 m"];
+    [expected addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(5, 2)];
+    XCTAssert([output  isEqualToAttributedString:expected], @"Expected %@ to be %@", output, expected);
+}
 @end

@@ -26,20 +26,20 @@
 - (NSMutableAttributedString *)mutableAttributtedStringFromLocationDistance:(CLLocationDistance)altitude
 {
     NSNumber *altitudeNumber = [NSNumber numberWithDouble:altitude];
-    NSUInteger integerPartLength = [NSString stringWithFormat:@"%ul",[altitudeNumber integerValue]].length;
-    const NSDecimal decimalPart = [altitudeNumber decimalValue];
-    //NSUInteger decimalPartLength = NSDecimalString(&decimalPart, [NSLocale currentLocale]).length;
+    NSString *integerPartString = [NSString stringWithFormat:@"%d",[altitudeNumber intValue]];
+    NSUInteger integerPartLength = integerPartString.length;
+    BOOL hasDecimalPart = !(altitude == floor(altitude));
     
-    NSUInteger decimalPartLength = decimalPart._length;
     NSString *unitString = @" m";
     
     NSString *altitudeStr = [[self stringFromNumber:altitudeNumber] stringByAppendingString:unitString];
     
     // make decimal part smaller
     NSMutableAttributedString *altitudeString = [[NSMutableAttributedString alloc] initWithString:altitudeStr];
-    if (decimalPartLength > 0) {
+    if (hasDecimalPart) {
+        NSUInteger formattedIntegerPartLength = integerPartLength + integerPartLength/self.groupingSize;
       [altitudeString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30]
-                             range:NSMakeRange(integerPartLength - 1, 1 + self.maximumFractionDigits)];
+                             range:NSMakeRange(formattedIntegerPartLength, 1 + self.maximumFractionDigits)];
     }
     
     return altitudeString;
