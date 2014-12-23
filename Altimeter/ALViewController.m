@@ -66,10 +66,12 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     self.location = [locations lastObject];
+    CLLocationDistance lastAltitude = self.location.altitude;
+    //lastAltitude = 10;
 
     // Format altitude
     ALAltitudeFormatter *altitudeFormatter = [[ALAltitudeFormatter alloc] init];
-    NSMutableAttributedString *altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:self.location.altitude];
+    NSMutableAttributedString *altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:lastAltitude];
     
     // negative value in accuracy indicates that the altitude value is invalid.
     // Accuracy is in meters.
@@ -77,23 +79,23 @@
     if (self.location.verticalAccuracy < 0) {
         verticalAccuracyString = @"Not available";
     } else {
-        verticalAccuracyString = [NSString stringWithFormat:@"+/- %f m", self.location.verticalAccuracy];
+        verticalAccuracyString = [NSString stringWithFormat:@"± %ld m", lround(self.location.verticalAccuracy)];
     }
     #if (TARGET_IPHONE_SIMULATOR)
-    verticalAccuracyString = @"+/- 5.000000 m";
+    verticalAccuracyString = @"± 5 m";
     #endif
     
     // Update UI
     
     self.verticalAccuracyLabel.text = [NSString stringWithFormat:@"Vertical accuracy: %@", verticalAccuracyString];
-    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"Horizontal accuracy: +/- %f m", self.location.horizontalAccuracy];
+    self.horizontalAccuracyLabel.text = [NSString stringWithFormat:@"Horizontal accuracy: ± %ld m", lround(self.location.horizontalAccuracy)];
 
     [self updateProgressBar: self.horizontalAccuracyProgress withAccuracy:self.location.horizontalAccuracy];
     [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:self.location.verticalAccuracy];
     
     #if (TARGET_IPHONE_SIMULATOR)
-    [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:5];
-    altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:1002];
+    [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:1000];
+    altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:0];
     #endif
     
     self.alitudeLabel.attributedText = altitudeString;

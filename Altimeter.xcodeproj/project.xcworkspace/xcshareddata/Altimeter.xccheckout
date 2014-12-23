@@ -10,29 +10,29 @@
 	<string>Altimeter</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D01FF09F-D484-4477-B0D5-8A3A7E03EBD4</key>
+		<key>F74F05C208F78FE2A895F5F004F556B749CA8E03</key>
 		<string>ssh://github.com/glegrain/Altimeter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Altimeter.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D01FF09F-D484-4477-B0D5-8A3A7E03EBD4</key>
+		<key>F74F05C208F78FE2A895F5F004F556B749CA8E03</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/glegrain/Altimeter.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D01FF09F-D484-4477-B0D5-8A3A7E03EBD4</string>
+	<string>F74F05C208F78FE2A895F5F004F556B749CA8E03</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D01FF09F-D484-4477-B0D5-8A3A7E03EBD4</string>
+			<string>F74F05C208F78FE2A895F5F004F556B749CA8E03</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Altimeter</string>
 		</dict>

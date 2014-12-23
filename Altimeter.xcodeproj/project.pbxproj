@@ -209,7 +209,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AL;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Guillaume Legrain";
 				TargetAttributes = {
 					F931CF4F190910D300D92AB4 = {
