@@ -94,7 +94,9 @@
     [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:self.location.verticalAccuracy];
     
     #if (TARGET_IPHONE_SIMULATOR)
+    // Set Progress bars and altitude string
     [self updateProgressBar:self.verticalAccuracyProgress withAccuracy:1000];
+    [self updateProgressBar:self.horizontalAccuracyProgress withAccuracy:1000];
     altitudeString = [altitudeFormatter mutableAttributtedStringFromLocationDistance:0];
     #endif
     
