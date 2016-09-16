@@ -22,6 +22,10 @@
 		F931CF5C190910D300D92AB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F931CF5A190910D300D92AB4 /* InfoPlist.strings */; };
 		F931CF5E190910D300D92AB4 /* AltimeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F931CF5D190910D300D92AB4 /* AltimeterTests.m */; };
 		F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF671909118800D92AB4 /* CoreLocation.framework */; };
+		F9D38F291D8B8927000B2FE6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */; };
+		F9D38F2C1D8B8927000B2FE6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */; };
+		F9D38F2F1D8B8927000B2FE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D38F2D1D8B8927000B2FE6 /* MainInterface.storyboard */; };
+		F9D38F331D8B8927000B2FE6 /* Altimeter Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F9D38F281D8B8927000B2FE6 /* Altimeter Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F9DA230A1928FE530054F528 /* ALAltitudeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DA23091928FE530054F528 /* ALAltitudeFormatter.m */; };
 		F9DA230C192903850054F528 /* ALAltitudeFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DA230B192903850054F528 /* ALAltitudeFormatterTest.m */; };
 /* End PBXBuildFile section */
@@ -34,7 +38,28 @@
 			remoteGlobalIDString = F931CF2E190910D300D92AB4;
 			remoteInfo = Altimeter;
 		};
+		F9D38F311D8B8927000B2FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F931CF27190910D300D92AB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9D38F271D8B8927000B2FE6;
+			remoteInfo = "Altimeter Today";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F9D38F231D8B8865000B2FE6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F9D38F331D8B8927000B2FE6 /* Altimeter Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F931CF2F190910D300D92AB4 /* Altimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Altimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +82,11 @@
 		F931CF5B190910D300D92AB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F931CF5D190910D300D92AB4 /* AltimeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltimeterTests.m; sourceTree = "<group>"; };
 		F931CF671909118800D92AB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F9D38F281D8B8927000B2FE6 /* Altimeter Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Altimeter Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F9D38F2E1D8B8927000B2FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F9D38F301D8B8927000B2FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9DA23081928FE530054F528 /* ALAltitudeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAltitudeFormatter.h; sourceTree = "<group>"; };
 		F9DA23091928FE530054F528 /* ALAltitudeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAltitudeFormatter.m; sourceTree = "<group>"; };
 		F9DA230B192903850054F528 /* ALAltitudeFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALAltitudeFormatterTest.m; path = ../Altimeter/ALAltitudeFormatterTest.m; sourceTree = "<group>"; };
@@ -84,6 +114,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F9D38F251D8B8927000B2FE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D38F291D8B8927000B2FE6 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,6 +130,7 @@
 			children = (
 				F931CF38190910D300D92AB4 /* Altimeter */,
 				F931CF57190910D300D92AB4 /* AltimeterTests */,
+				F9D38F2A1D8B8927000B2FE6 /* Altimeter Today */,
 				F931CF31190910D300D92AB4 /* Frameworks */,
 				F931CF30190910D300D92AB4 /* Products */,
 			);
@@ -102,6 +141,7 @@
 			children = (
 				F931CF2F190910D300D92AB4 /* Altimeter.app */,
 				F931CF50190910D300D92AB4 /* AltimeterTests.xctest */,
+				F9D38F281D8B8927000B2FE6 /* Altimeter Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +154,7 @@
 				F931CF34190910D300D92AB4 /* CoreGraphics.framework */,
 				F931CF36190910D300D92AB4 /* UIKit.framework */,
 				F931CF51190910D300D92AB4 /* XCTest.framework */,
+				F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,6 +205,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F9D38F2A1D8B8927000B2FE6 /* Altimeter Today */ = {
+			isa = PBXGroup;
+			children = (
+				F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */,
+				F9D38F2D1D8B8927000B2FE6 /* MainInterface.storyboard */,
+				F9D38F301D8B8927000B2FE6 /* Info.plist */,
+			);
+			path = "Altimeter Today";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,10 +225,12 @@
 				F931CF2B190910D300D92AB4 /* Sources */,
 				F931CF2C190910D300D92AB4 /* Frameworks */,
 				F931CF2D190910D300D92AB4 /* Resources */,
+				F9D38F231D8B8865000B2FE6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F9D38F321D8B8927000B2FE6 /* PBXTargetDependency */,
 			);
 			name = Altimeter;
 			productName = Altimeter;
@@ -202,6 +255,23 @@
 			productReference = F931CF50190910D300D92AB4 /* AltimeterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F9D38F271D8B8927000B2FE6 /* Altimeter Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9D38F361D8B8928000B2FE6 /* Build configuration list for PBXNativeTarget "Altimeter Today" */;
+			buildPhases = (
+				F9D38F241D8B8927000B2FE6 /* Sources */,
+				F9D38F251D8B8927000B2FE6 /* Frameworks */,
+				F9D38F261D8B8927000B2FE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Altimeter Today";
+			productName = "Altimeter Today";
+			productReference = F9D38F281D8B8927000B2FE6 /* Altimeter Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -209,6 +279,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AL;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Guillaume Legrain";
 				TargetAttributes = {
@@ -217,6 +288,10 @@
 					};
 					F931CF4F190910D300D92AB4 = {
 						TestTargetID = F931CF2E190910D300D92AB4;
+					};
+					F9D38F271D8B8927000B2FE6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F62A54H99Z;
 					};
 				};
 			};
@@ -235,6 +310,7 @@
 			targets = (
 				F931CF2E190910D300D92AB4 /* Altimeter */,
 				F931CF4F190910D300D92AB4 /* AltimeterTests */,
+				F9D38F271D8B8927000B2FE6 /* Altimeter Today */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +331,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F931CF5C190910D300D92AB4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9D38F261D8B8927000B2FE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D38F2F1D8B8927000B2FE6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +365,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F9D38F241D8B8927000B2FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9D38F2C1D8B8927000B2FE6 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -288,6 +380,11 @@
 			isa = PBXTargetDependency;
 			target = F931CF2E190910D300D92AB4 /* Altimeter */;
 			targetProxy = F931CF55190910D300D92AB4 /* PBXContainerItemProxy */;
+		};
+		F9D38F321D8B8927000B2FE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9D38F271D8B8927000B2FE6 /* Altimeter Today */;
+			targetProxy = F9D38F311D8B8927000B2FE6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -314,6 +411,14 @@
 				F931CF5B190910D300D92AB4 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F9D38F2D1D8B8927000B2FE6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9D38F2E1D8B8927000B2FE6 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -400,6 +505,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
 				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
@@ -418,6 +524,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
 				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
@@ -471,6 +578,48 @@
 			};
 			name = Release;
 		};
+		F9D38F341D8B8928000B2FE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Altimeter Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guillaumelegrain.Altimeter.Altimeter-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9D38F351D8B8928000B2FE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Altimeter Today/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.guillaumelegrain.Altimeter.Altimeter-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -500,6 +649,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F9D38F361D8B8928000B2FE6 /* Build configuration list for PBXNativeTarget "Altimeter Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9D38F341D8B8928000B2FE6 /* Debug */,
+				F9D38F351D8B8928000B2FE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
