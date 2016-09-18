@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ALViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Altimeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEK-xH-6Qq">
-                                <rect key="frame" x="20" y="159" width="280" height="71"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="60"/>
+                                <rect key="frame" x="20" y="159" width="280" height="72"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -44,13 +44,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z43-XO-KM4">
-                                <rect key="frame" x="84" y="412" width="152" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEh-zr-E1k">
+                                <rect key="frame" x="84" y="373" width="152" height="2"/>
                                 <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aEh-zr-E1k">
-                                <rect key="frame" x="84" y="373" width="152" height="2"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z43-XO-KM4">
+                                <rect key="frame" x="84" y="412" width="152" height="2"/>
                                 <rect key="contentStretch" x="1.3877787807814457e-17" y="0.0" width="1" height="1"/>
                                 <color key="progressTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
@@ -69,13 +69,14 @@
                             <constraint firstItem="VEK-xH-6Qq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="xBy-0q-wFp"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="alitudeLabel" destination="VEK-xH-6Qq" id="h0x-Xy-bxS"/>
-                        <outlet property="coordsLabel" destination="qtH-RL-IsO" id="cIp-nG-76G"/>
-                        <outlet property="horizontalAccuracyLabel" destination="bDW-xU-oqT" id="6j9-4e-Y47"/>
-                        <outlet property="horizontalAccuracyProgress" destination="z43-XO-KM4" id="vNd-Vi-kQY"/>
-                        <outlet property="verticalAccuracyLabel" destination="aSq-EN-6we" id="hdC-Gf-M5Q"/>
-                        <outlet property="verticalAccuracyProgress" destination="aEh-zr-E1k" id="Z28-2Z-FXW"/>
+                        <outlet property="altitudeLabel" destination="VEK-xH-6Qq" id="bso-JU-SkE"/>
+                        <outlet property="coordsLabel" destination="qtH-RL-IsO" id="UxM-gh-8Fo"/>
+                        <outlet property="horizontalAccuracyLabel" destination="bDW-xU-oqT" id="MOS-Qe-Zql"/>
+                        <outlet property="horizontalAccuracyProgress" destination="z43-XO-KM4" id="eZq-Bl-yMa"/>
+                        <outlet property="verticalAccuracyLabel" destination="aSq-EN-6we" id="Qo0-jF-JJj"/>
+                        <outlet property="verticalAccuracyProgress" destination="aEh-zr-E1k" id="5Tz-4x-uLR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
