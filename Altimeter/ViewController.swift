@@ -23,24 +23,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Get the current authorization status for app
-        // TODO: Check what happens when authorizationStatus() is restricted or denied
+        // Request the appropriate type of authorization from the user.
+        locationManager.requestWhenInUseAuthorization()
         
         // Assign Core Location Manager delegation
         locationManager.delegate = self
         
-        // Request the appropriate type of authorization from the user.
-        locationManager.requestWhenInUseAuthorization()
-        
         // if iOS 9.0
         //locationManager.allowsBackgroundLocationUpdates = true
         
-        // Configure location service
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.startUpdatingLocation()
+        // NOTE: location manager will start updating location in the locationManager:didChangeAuthorizationStatus delegate method
+
     }
     
     // MARK: - Core Location Delegate
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        // Configure location service
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
@@ -80,20 +84,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error occured: \(error.localizedDescription).")
-        // TODO:
-//        if error.code == kCLErrorDenied {
-//            self.locationManager.stopUpdatingLocation()
-//        }
-//        else if error.code == kCLErrorLocationUnknown {
-//            // This can occur when Core Location is first starting up and isn’t able to immediately determine its position
-//            return
-//            // retry
-//        }
-//        
-//        // TODO: Update to new Alert view
-//        var alertView = UIAlertView(title: "Error", message: error!.localizedDescription, delegate: self, cancelButtonTitle: "OK")
-//        alertView.show()
+//        print("Error description: \(error.localizedDescription).")
+//        print("Error suggestion: \(error.localizedRecoverySuggestion).")
+//        print("Error failure reason: \(error.localizedFailureReason).")
+//        print("Error recovery options: \(error.localizedRecoveryOptions).")
+        
+        var alert: UIAlertController
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+            if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }
+        
+        switch CLLocationManager.authorizationStatus() {
+        case .Denied, .Restricted:
+            alert = UIAlertController(
+                title: "Location Access Disabled",
+                message: "In order to get your altitude, please open this app's settings and set location access to 'Always'.",
+                preferredStyle: .Alert
+            )
+            alert.addAction(cancelAction)
+            alert.addAction(openAction)
+        default:
+            alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+            alert.addAction(cancelAction)
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+        
+        // Replace altitude label with a "Not data" text
+        let attributes = [
+            NSFontAttributeName: UIFont.systemFontOfSize(17),
+            NSForegroundColorAttributeName: UIColor.darkGrayColor()
+        ]
+        altitudeLabel.attributedText = NSAttributedString(string: "No data", attributes: attributes)
     }
     
     // MARK: - UI Configuration
