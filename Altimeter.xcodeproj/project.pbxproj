@@ -23,6 +23,8 @@
 		F9FDBD471D8ED4E00001CD31 /* AltitudeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDBD461D8ED4E00001CD31 /* AltitudeFormatter.swift */; };
 		F9FDBD511D8EE9630001CD31 /* AltimeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDBD501D8EE9630001CD31 /* AltimeterTests.swift */; };
 		F9FDBD5C1D8EEAA20001CD31 /* AltitudeFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDBD5B1D8EEAA20001CD31 /* AltitudeFormatterTests.swift */; };
+		F9FDBD5E1D8F0D8D0001CD31 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FDBD5D1D8F0D8D0001CD31 /* Launch Screen.storyboard */; };
+		F9FDBD601D8F130F0001CD31 /* SignalStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDBD5F1D8F130F0001CD31 /* SignalStrengthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		F9FDBD501D8EE9630001CD31 /* AltimeterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltimeterTests.swift; sourceTree = "<group>"; };
 		F9FDBD521D8EE9630001CD31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9FDBD5B1D8EEAA20001CD31 /* AltitudeFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltitudeFormatterTests.swift; sourceTree = "<group>"; };
+		F9FDBD5D1D8F0D8D0001CD31 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F9FDBD5F1D8F130F0001CD31 /* SignalStrengthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalStrengthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +154,9 @@
 			children = (
 				F9FDBD421D8EB4C60001CD31 /* AppDelegate.swift */,
 				F931CF44190910D300D92AB4 /* Main.storyboard */,
+				F9FDBD5D1D8F0D8D0001CD31 /* Launch Screen.storyboard */,
 				F9FDBD441D8EB7BE0001CD31 /* ViewController.swift */,
+				F9FDBD5F1D8F130F0001CD31 /* SignalStrengthView.swift */,
 				F9FDBD461D8ED4E00001CD31 /* AltitudeFormatter.swift */,
 				F931CF4A190910D300D92AB4 /* Images.xcassets */,
 				F931CF39190910D300D92AB4 /* Supporting Files */,
@@ -296,6 +302,7 @@
 			files = (
 				F931CF4B190910D300D92AB4 /* Images.xcassets in Resources */,
 				F931CF3D190910D300D92AB4 /* InfoPlist.strings in Resources */,
+				F9FDBD5E1D8F0D8D0001CD31 /* Launch Screen.storyboard in Resources */,
 				F931CF46190910D300D92AB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9FDBD601D8F130F0001CD31 /* SignalStrengthView.swift in Sources */,
 				F9FDBD471D8ED4E00001CD31 /* AltitudeFormatter.swift in Sources */,
 				F9FDBD451D8EB7BE0001CD31 /* ViewController.swift in Sources */,
 				F9FDBD431D8EB4C60001CD31 /* AppDelegate.swift in Sources */,
@@ -466,7 +474,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -474,7 +481,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
 				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guillaumelegrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -488,7 +495,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -496,7 +502,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Altimeter/Altimeter-Prefix.pch";
 				INFOPLIST_FILE = "Altimeter/Altimeter-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guillaumelegrain.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

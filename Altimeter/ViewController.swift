@@ -15,8 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var verticalAccuracyLabel: UILabel!
     @IBOutlet weak var horizontalAccuracyLabel: UILabel!
     @IBOutlet weak var coordsLabel: UITextField!
-    @IBOutlet weak var verticalAccuracyProgress: UIProgressView!
-    @IBOutlet weak var horizontalAccuracyProgress: UIProgressView!
+    @IBOutlet weak var verticalAccuracyProgress: SignalStrengthView!
+    @IBOutlet weak var horizontalAccuracyProgress: SignalStrengthView!
     
     private let locationManager = CLLocationManager()
 
@@ -29,8 +29,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Assign Core Location Manager delegation
         locationManager.delegate = self
         
-        // if iOS 9.0
-        //locationManager.allowsBackgroundLocationUpdates = true
+        
         
         // NOTE: location manager will start updating location in the locationManager:didChangeAuthorizationStatus delegate method
 
@@ -43,6 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
+            //locationManager.allowsBackgroundLocationUpdates = true
         }
     }
     
@@ -68,8 +68,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             // Update UI
             verticalAccuracyLabel.text! = "Vertical accuracy: \(verticalAccuracyString)"
             horizontalAccuracyLabel.text! = "Horizontal accuracy: ± \(lround(location.horizontalAccuracy)) m"
-            updateProgressBar(horizontalAccuracyProgress, withAccuracy: location.horizontalAccuracy)
-            updateProgressBar(verticalAccuracyProgress, withAccuracy: location.verticalAccuracy)
+            verticalAccuracyProgress.setProgress(Float(location.verticalAccuracy), animated: true)
+            horizontalAccuracyProgress.setProgress(Float(location.horizontalAccuracy), animated: true)
             
             #if (TARGET_IPHONE_SIMULATOR)
                 // Set Progress bars and altitude string for debug
