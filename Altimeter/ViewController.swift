@@ -21,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     private var location: CLLocation?
     private let locationManager = CLLocationManager()
+    private let altitudeFormatter = AltitudeFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             self.location = location
 
             // Format altitude
-            let altitudeFormatter = AltitudeFormatter()
             let altitudeString = altitudeFormatter.mutableAttributtedStringFromLocationDistance(location.altitude)
             
             // Set accuracy labels
@@ -125,9 +125,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         shareButton.enabled = false
 
     }
-    
+
     // MARK: - UI
-    
+
+    @IBAction func changeAltitudeUnit() {
+        // TODO: save to user defaults
+        if altitudeFormatter.unit == .Meters {
+            altitudeFormatter.unit = .Feet
+        } else {
+            altitudeFormatter.unit = .Meters
+        }
+
+        // Update altitude label (i.e. do not wait for the next location update)
+        if let altitude = location?.altitude {
+            altitudeLabel.attributedText = altitudeFormatter.mutableAttributtedStringFromLocationDistance(altitude)
+        }
+
+    }
+
     @IBAction func share(sender: AnyObject) {
         if location != nil {
             let activityItems = [CoordinateFormatter().stringFromLocationCoordinate(location!.coordinate)]
@@ -135,9 +150,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             activityViewController.title = "Share my location"
             self.presentViewController(activityViewController, animated: true, completion: nil)
         }
-
     }
-    
+
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }

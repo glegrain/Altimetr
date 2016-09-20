@@ -10,6 +10,13 @@ import Foundation
 import UIKit.UIFont
 
 class AltitudeFormatter: NSNumberFormatter {
+
+    enum AltitudeFormatterUnit {
+        case Meters
+        case Feet
+    }
+
+    var unit: AltitudeFormatterUnit = .Meters
     
     override init() {
         super.init()
@@ -26,8 +33,19 @@ class AltitudeFormatter: NSNumberFormatter {
     }
     
     func mutableAttributtedStringFromLocationDistance(altitude: Double) -> NSMutableAttributedString {
-        let unitString = " m"
-        let altitudeStr = self.stringFromNumber(altitude)!.stringByAppendingString(unitString)
+
+        var unitString: String
+        var convertedAltitude: Double
+        switch  unit{
+        case .Meters:
+            unitString = " m"
+            convertedAltitude = altitude
+        case .Feet:
+            unitString = " ft"
+            convertedAltitude = altitude * 3.28084
+        }
+
+        let altitudeStr = self.stringFromNumber(convertedAltitude)!.stringByAppendingString(unitString)
         
         // if the altitude string has a decimal, make it smaller
         let altitudeString = NSMutableAttributedString(string: altitudeStr)
