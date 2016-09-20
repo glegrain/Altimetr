@@ -14,10 +14,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var altitudeLabel: UILabel!
     @IBOutlet weak var verticalAccuracyLabel: UILabel!
     @IBOutlet weak var horizontalAccuracyLabel: UILabel!
-    @IBOutlet weak var coordsLabel: UITextField!
+    @IBOutlet weak var coordsLabel: UILabel!
     @IBOutlet weak var verticalAccuracyProgress: SignalStrengthView!
     @IBOutlet weak var horizontalAccuracyProgress: SignalStrengthView!
-    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+
+    private var location: CLLocation?
     private let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -46,6 +48,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            self.location = location
+
             // Format altitude
             let altitudeFormatter = AltitudeFormatter()
             let altitudeString = altitudeFormatter.mutableAttributtedStringFromLocationDistance(location.altitude)
@@ -108,7 +112,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
             alert.addAction(cancelAction)
         }
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
         
         // Replace altitude label with a "Not data" text
@@ -117,6 +120,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             NSForegroundColorAttributeName: UIColor.darkGrayColor()
         ]
         altitudeLabel.attributedText = NSAttributedString(string: "No data", attributes: attributes)
+        // Disable share button
+        shareButton.enabled = false
+
     }
     
     // MARK: - UI

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -26,15 +25,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0000 0.0000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lKx-13-xQc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000 0.0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdE-Fh-zoe">
                                         <rect key="frame" x="0.0" y="72" width="149" height="20"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" updatesFrequently="YES"/>
-                                        </accessibility>
-                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WGS 84 Latitude Longitude." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRL-8r-fHc">
                                         <rect key="frame" x="0.0" y="92" width="149" height="14"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
@@ -85,29 +81,46 @@
                                     <rect key="frame" x="306" y="558" width="187" height="34"/>
                                 </variation>
                             </stackView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sa-Es-8Gy">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="oYd-Wb-Ufp">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="sVP-Ff-lZa">
+                                            <connections>
+                                                <action selector="share:" destination="vXZ-lx-hvc" id="kla-Eh-OFJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="1sa-Es-8Gy" firstAttribute="centerX" secondItem="LWB-xN-SgJ" secondAttribute="centerX" id="488-b0-NiO"/>
                             <constraint firstItem="LWB-xN-SgJ" firstAttribute="centerY" secondItem="vEd-JH-Cfn" secondAttribute="centerY" id="DQ4-No-beG"/>
                             <constraint firstItem="zgA-48-w4L" firstAttribute="centerX" secondItem="vEd-JH-Cfn" secondAttribute="centerX" id="Dr9-7z-hJ5"/>
+                            <constraint firstItem="1sa-Es-8Gy" firstAttribute="leading" secondItem="vEd-JH-Cfn" secondAttribute="leading" id="Ecm-r7-Gi4"/>
                             <constraint firstItem="LWB-xN-SgJ" firstAttribute="centerX" secondItem="vEd-JH-Cfn" secondAttribute="centerX" id="mld-iv-n8b"/>
+                            <constraint firstItem="1sa-Es-8Gy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="qPT-f2-dEC"/>
                             <constraint firstAttribute="bottom" secondItem="zgA-48-w4L" secondAttribute="bottom" constant="20" symbolic="YES" id="qYK-Qg-21C"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="altitudeLabel" destination="ywN-tB-Uvm" id="jUD-RL-kYX"/>
-                        <outlet property="coordsLabel" destination="lKx-13-xQc" id="d5C-lI-hU6"/>
+                        <outlet property="coordsLabel" destination="TdE-Fh-zoe" id="r1F-m3-8rl"/>
                         <outlet property="horizontalAccuracyLabel" destination="J2b-aa-AcU" id="u5k-xA-qaG"/>
                         <outlet property="horizontalAccuracyProgress" destination="T3E-1W-gCY" id="XJf-Em-m7C"/>
+                        <outlet property="shareButton" destination="sVP-Ff-lZa" id="X8e-lM-LeA"/>
                         <outlet property="verticalAccuracyLabel" destination="6B4-Ct-jA8" id="6ut-N2-2s8"/>
                         <outlet property="verticalAccuracyProgress" destination="5gr-9J-G7O" id="BqE-Cn-5rY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918.75" y="484.375"/>
+            <point key="canvasLocation" x="916" y="502"/>
         </scene>
     </scenes>
 </document>
