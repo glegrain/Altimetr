@@ -81,7 +81,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             #endif
             
             altitudeLabel.attributedText = altitudeString
-            coordsLabel.text = "\(location.coordinate.latitude) \(location.coordinate.longitude)"
+
+            coordsLabel.text = CoordinateFormatter().stringFromLocationCoordinate(location.coordinate)
         }
     }
     
@@ -129,7 +130,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func share(sender: AnyObject) {
         if location != nil {
-            let activityItems = [location!.description]
+            let activityItems = [CoordinateFormatter().stringFromLocationCoordinate(location!.coordinate)]
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
             activityViewController.title = "Share my location"
             self.presentViewController(activityViewController, animated: true, completion: nil)

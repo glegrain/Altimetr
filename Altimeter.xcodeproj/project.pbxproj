@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F909ECD81D91CA5300EBF45F /* CoordinateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F909ECD61D91CA4E00EBF45F /* CoordinateFormatter.swift */; };
 		F931CF33190910D300D92AB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF32190910D300D92AB4 /* Foundation.framework */; };
 		F931CF35190910D300D92AB4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF34190910D300D92AB4 /* CoreGraphics.framework */; };
 		F931CF37190910D300D92AB4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF36190910D300D92AB4 /* UIKit.framework */; };
@@ -59,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F909ECD61D91CA4E00EBF45F /* CoordinateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateFormatter.swift; path = Altimeter/CoordinateFormatter.swift; sourceTree = SOURCE_ROOT; };
 		F931CF2F190910D300D92AB4 /* Altimeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Altimeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F931CF32190910D300D92AB4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F931CF34190910D300D92AB4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,6 +160,7 @@
 				F9FDBD441D8EB7BE0001CD31 /* ViewController.swift */,
 				F9FDBD5F1D8F130F0001CD31 /* SignalStrengthView.swift */,
 				F9FDBD461D8ED4E00001CD31 /* AltitudeFormatter.swift */,
+				F909ECD61D91CA4E00EBF45F /* CoordinateFormatter.swift */,
 				F931CF4A190910D300D92AB4 /* Images.xcassets */,
 				F931CF39190910D300D92AB4 /* Supporting Files */,
 			);
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F909ECD81D91CA5300EBF45F /* CoordinateFormatter.swift in Sources */,
 				F9FDBD601D8F130F0001CD31 /* SignalStrengthView.swift in Sources */,
 				F9FDBD471D8ED4E00001CD31 /* AltitudeFormatter.swift in Sources */,
 				F9FDBD451D8EB7BE0001CD31 /* ViewController.swift in Sources */,
@@ -632,6 +636,7 @@
 				F9FDBD571D8EE9630001CD31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
