@@ -74,5 +74,12 @@ class AltitudeFormatterTests: XCTestCase {
         expected.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
+
+    func test131dot97Meters() {
+        let altitudeFormatter = AltitudeFormatter()
+        let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(131.97)
+        let expected = NSMutableAttributedString(string: "132 m")
+        XCTAssert(output.isEqualToAttributedString(expected))
+    }
     
 }
