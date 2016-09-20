@@ -35,7 +35,11 @@ class AltitudeFormatter: NSNumberFormatter {
         if let decimalSeparatorRange = altitudeStr.rangeOfCharacterFromSet(decimalSeparatorsSet) {
             let decimalSeparatorPosition = altitudeStr.startIndex.distanceTo(decimalSeparatorRange.endIndex.predecessor())
             let rangeToChange = NSMakeRange(decimalSeparatorPosition, 1 + maximumFractionDigits)
-            altitudeString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: rangeToChange)
+            altitudeString.addAttribute(
+                NSFontAttributeName,
+                value: UIFont.systemFontOfSize(30, weight: UIFontWeightUltraLight),
+                range: rangeToChange
+            )
         }
 
         return altitudeString
