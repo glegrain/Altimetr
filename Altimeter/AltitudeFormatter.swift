@@ -26,20 +26,18 @@ class AltitudeFormatter: NSNumberFormatter {
     }
     
     func mutableAttributtedStringFromLocationDistance(altitude: Double) -> NSMutableAttributedString {
-        let altitudeNumber = Int(altitude)
-        let integerPartString = "\(CInt(altitudeNumber))"
-        let integerPartLength = integerPartString.characters.count
-        let hasDecimalPart = (altitude - Double(altitudeNumber)) >= 0.05 // for 1 fraction digit
         let unitString = " m"
         let altitudeStr = self.stringFromNumber(altitude)!.stringByAppendingString(unitString)
         
-        // make decimal part smaller
+        // if the altitude string has a decimal, make it smaller
         let altitudeString = NSMutableAttributedString(string: altitudeStr)
-        if hasDecimalPart {
-            let formattedIntegerPartLength = integerPartLength + integerPartLength / self.groupingSize
-            altitudeString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(formattedIntegerPartLength, 1 + self.maximumFractionDigits))
+        let decimalSeparatorsSet = NSCharacterSet(charactersInString: self.decimalSeparator!)
+        if let decimalSeparatorRange = altitudeStr.rangeOfCharacterFromSet(decimalSeparatorsSet) {
+            let decimalSeparatorPosition = altitudeStr.startIndex.distanceTo(decimalSeparatorRange.endIndex.predecessor())
+            let rangeToChange = NSMakeRange(decimalSeparatorPosition, 1 + maximumFractionDigits)
+            altitudeString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: rangeToChange)
         }
-        
+
         return altitudeString
     }
     
