@@ -103,8 +103,8 @@
                             <constraint firstItem="zgA-48-w4L" firstAttribute="centerX" secondItem="vEd-JH-Cfn" secondAttribute="centerX" id="Dr9-7z-hJ5"/>
                             <constraint firstItem="1sa-Es-8Gy" firstAttribute="leading" secondItem="vEd-JH-Cfn" secondAttribute="leading" id="Ecm-r7-Gi4"/>
                             <constraint firstItem="LWB-xN-SgJ" firstAttribute="centerX" secondItem="vEd-JH-Cfn" secondAttribute="centerX" id="mld-iv-n8b"/>
-                            <constraint firstItem="1sa-Es-8Gy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="qPT-f2-dEC"/>
                             <constraint firstAttribute="bottom" secondItem="zgA-48-w4L" secondAttribute="bottom" constant="20" symbolic="YES" id="qYK-Qg-21C"/>
+                            <constraint firstItem="1sa-Es-8Gy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="vMu-oc-4wU"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
