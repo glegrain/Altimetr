@@ -28,15 +28,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // Assign Core Location Manager delegation
         locationManager.delegate = self
-        
-        
-        
+
         // NOTE: location manager will start updating location in the locationManager:didChangeAuthorizationStatus delegate method
 
     }
     
     // MARK: - Core Location Delegate
-    
+
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         // Configure location service
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -45,7 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             //locationManager.allowsBackgroundLocationUpdates = true
         }
     }
-    
+
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             // Format altitude
@@ -121,26 +119,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         altitudeLabel.attributedText = NSAttributedString(string: "No data", attributes: attributes)
     }
     
-    // MARK: - UI Configuration
+    // MARK: - UI
     
-    func updateProgressBar(progressView: UIProgressView, withAccuracy accuracy: CLLocationDistance) {
-        var progress: Float
-        if accuracy < 100 && accuracy > 0 {
-            progress = 1 - Float(accuracy) / 100
-        } else {
-            progress = 0
+    @IBAction func share(sender: AnyObject) {
+        if location != nil {
+            let activityItems = [location!.description]
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+            activityViewController.title = "Share my location"
+            self.presentViewController(activityViewController, animated: true, completion: nil)
         }
-        progressView.setProgress(progress, animated: true)
-        if accuracy < 10 {
-            progressView.progressTintColor! = UIColor.greenColor()
-        } else if accuracy > 100 {
-            progressView.progressTintColor! = UIColor.redColor()
-        } else if accuracy < 20 {
-            progressView.progressTintColor! = UIColor.yellowColor()
-        } else {
-            progressView.progressTintColor! = UIColor.orangeColor()
-        }
-        
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
