@@ -103,6 +103,7 @@
                             <constraint firstAttribute="bottom" secondItem="fYB-sC-q0r" secondAttribute="bottom" constant="20" symbolic="YES" id="tZ9-SH-uAF"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
