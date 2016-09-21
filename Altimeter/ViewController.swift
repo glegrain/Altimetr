@@ -114,8 +114,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             alert.addAction(cancelAction)
         }
         presentViewController(alert, animated: true, completion: nil)
-        
-        // Replace altitude label with a "Not data" text
+
+        // Replace altitude label with a "No data" text
         let attributes = [
             NSFontAttributeName: UIFont.systemFontOfSize(17),
             NSForegroundColorAttributeName: UIColor.darkGrayColor()
