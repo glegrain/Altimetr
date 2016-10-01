@@ -23,14 +23,31 @@ class CoordinateFormatterTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testDMS() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let coordinates = CLLocationCoordinate2D(latitude: 40.446111, longitude: -79.982222)
+
+    func testConvertToDMS() {
+        let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
         let result = formatter.stringFromLocationCoordinate(coordinates)
-        XCTAssertEqual(result, "40º 26' 46\" N, 79º 58' 56\" W")
+        XCTAssertEqual(result, "45° 56' 5\" N, 6° 58' 13\" E")
     }
 
+    func testConvertToDMSWithNegativeLongitude() {
+        let coordinates = CLLocationCoordinate2D(latitude: 40.446111, longitude: -79.982222)
+        let result = formatter.stringFromLocationCoordinate(coordinates)
+        XCTAssertEqual(result, "40° 26' 46\" N, 79° 58' 56\" W")
+    }
+
+    func testConvertToDDM() {
+        formatter.formatStyle = .DegreesDecimalMinutes
+        let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
+        let result = formatter.stringFromLocationCoordinate(coordinates)
+        XCTAssertEqual(result, "45° 56.077' N, 6° 58.214' E")
+    }
+
+    func testConvertToDD() {
+        formatter.formatStyle = .DecimalDegrees
+        let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
+        let result = formatter.stringFromLocationCoordinate(coordinates)
+        XCTAssertEqual(result, "45.934613° N, 6.97024° E")
+    }
     
 }
