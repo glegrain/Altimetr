@@ -12,9 +12,9 @@ import CoreLocation
 class CoordinateFormatter: NSFormatter {
 
     // Formats:
-    //  - DMS: Degree Minutes Seconds (e.g. 40º 26' 46" N, 79º 58' 56" W)
-    //  - DDM: Degree Decimal Minutes (e.g. 40º 26.767' N, 79º 58.933' W)
-    //  - DD: Decimal Degres (e.g. 40.446º N, 79.982º W)
+    //  - DMS: Degree Minutes Seconds (e.g. 40° 26' 46" N, 79° 58' 56" W)
+    //  - DDM: Degree Decimal Minutes (e.g. 40° 26.767' N, 79° 58.933' W)
+    //  - DD: Decimal Degres (e.g. 40.446° N, 79.982° W)
     //  - TODO: Google Plus Code (Experimental)
     enum NSFormattingFormatStyle: Int {
         case DegreesMinutesSeconds
@@ -70,15 +70,15 @@ class CoordinateFormatter: NSFormatter {
         case .DegreesMinutesSeconds:
             numberFormatter.maximumFractionDigits = maximumSecondsFractionDigits
             let formattedSeconds = numberFormatter.stringFromNumber(seconds)
-            return "\(Int(degrees))º \(Int(minutes))' \(formattedSeconds!)\""
+            return "\(Int(degrees))° \(Int(minutes))' \(formattedSeconds!)\""
         case .DegreesDecimalMinutes:
             numberFormatter.maximumFractionDigits = maximumMinutesFractionDigits
             let formattedMinutes = numberFormatter.stringFromNumber(minutes)
-            return "\(Int(degrees))º \(formattedMinutes!)'"
+            return "\(Int(degrees))° \(formattedMinutes!)'"
         case .DecimalDegrees:
             numberFormatter.maximumFractionDigits = maximumDegreesFractionDigits
             let formattedDegrees = numberFormatter.stringFromNumber(degrees)
-            return "\(formattedDegrees!)º"
+            return "\(formattedDegrees!)°"
         }
     }
 }
