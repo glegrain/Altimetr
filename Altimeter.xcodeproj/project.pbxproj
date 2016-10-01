@@ -15,6 +15,7 @@
 		F931CF46190910D300D92AB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F931CF44190910D300D92AB4 /* Main.storyboard */; };
 		F931CF4B190910D300D92AB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F931CF4A190910D300D92AB4 /* Images.xcassets */; };
 		F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF671909118800D92AB4 /* CoreLocation.framework */; };
+		F9CA5EEC1D9F6DF300CD528E /* CoordinateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CA5EEB1D9F6DF300CD528E /* CoordinateFormatterTests.swift */; };
 		F9D38F291D8B8927000B2FE6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */; };
 		F9D38F2C1D8B8927000B2FE6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */; };
 		F9D38F2F1D8B8927000B2FE6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D38F2D1D8B8927000B2FE6 /* MainInterface.storyboard */; };
@@ -71,6 +72,7 @@
 		F931CF4A190910D300D92AB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F931CF51190910D300D92AB4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F931CF671909118800D92AB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F9CA5EEB1D9F6DF300CD528E /* CoordinateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateFormatterTests.swift; sourceTree = "<group>"; };
 		F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F9D38F281D8B8927000B2FE6 /* Altimeter Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Altimeter Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		F9FDBD4F1D8EE9630001CD31 /* AltimeterTests */ = {
 			isa = PBXGroup;
 			children = (
+				F9CA5EEB1D9F6DF300CD528E /* CoordinateFormatterTests.swift */,
 				F9FDBD5B1D8EEAA20001CD31 /* AltitudeFormatterTests.swift */,
 				F9FDBD501D8EE9630001CD31 /* AltimeterTests.swift */,
 				F9FDBD521D8EE9630001CD31 /* Info.plist */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9FDBD5C1D8EEAA20001CD31 /* AltitudeFormatterTests.swift in Sources */,
+				F9CA5EEC1D9F6DF300CD528E /* CoordinateFormatterTests.swift in Sources */,
 				F9FDBD511D8EE9630001CD31 /* AltimeterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
