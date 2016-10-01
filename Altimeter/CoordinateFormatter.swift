@@ -49,8 +49,8 @@ class CoordinateFormatter: NSFormatter {
         }
         let latitudeString = stringFromLocationDegrees(coordinate.latitude)
             + " " + (coordinate.latitude > 0 ? north:south)
-        let longitudeString = stringFromLocationDegrees(coordinate.latitude)
-            + " " + (coordinate.latitude > 0 ? east:west)
+        let longitudeString = stringFromLocationDegrees(coordinate.longitude)
+            + " " + (coordinate.longitude > 0 ? east:west)
         return latitudeString + ", " + longitudeString
     }
 
@@ -60,7 +60,8 @@ class CoordinateFormatter: NSFormatter {
         return false
     }
 
-    func stringFromLocationDegrees(degrees: CLLocationDegrees) -> (String) {
+    func stringFromLocationDegrees(locationDegrees: CLLocationDegrees) -> (String) {
+        let degrees = fabs(locationDegrees)
         let minutes = (fabs(degrees) - floor(fabs(degrees))) * 60
         let seconds = (minutes - floor(minutes)) * 60
         let numberFormatter = NSNumberFormatter()
