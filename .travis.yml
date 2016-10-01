@@ -5,4 +5,4 @@ xcode_scheme: Altimeter
 xcode_sdk: iphonesimulator9.3
 
 script:
-- xcodebuild -scheme Altimeter -workspace Altimeter.xcworkspace -sdk iphonesimulator9.3 build test
+- xcodebuild -scheme Altimeter -workspace Altimeter.xcodeproj -sdk iphonesimulator9.3 build test
