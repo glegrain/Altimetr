@@ -14,19 +14,19 @@ class CoordinateFormatter: NSFormatter {
     // Formats:
     //  - DMS: Degree Minutes Seconds (e.g. 40º 26' 46" N, 79º 58' 56" W)
     //  - DDM: Degree Decimal Minutes (e.g. 40º 26.767' N, 79º 58.933' W)
-    //  - Decimal Degres (e.g. 40.446º N, 79.982º W)
+    //  - DD: Decimal Degres (e.g. 40.446º N, 79.982º W)
     //  - TODO: Google Plus Code (Experimental)
     enum NSFormattingFormatStyle: Int {
-        case DMS
-        case DDM
-        case Decimal
+        case DegreesMinutesSeconds
+        case DegreesDecimalMinutes
+        case DecimalDegrees
     }
 
     var unitStyle: NSFormattingUnitStyle =  NSFormattingUnitStyle.Short
-    var formatStyle: NSFormattingFormatStyle = NSFormattingFormatStyle.DMS
+    var formatStyle: NSFormattingFormatStyle = NSFormattingFormatStyle.DegreesMinutesSeconds
     var maximumSecondsFractionDigits = 0 // affects DMS format
     var maximumMinutesFractionDigits = 3 // affects DDM format
-    var maximumDegreesFractionDigits = 6 // affects Decimal format
+    var maximumDegreesFractionDigits = 6 // affects DD
 
     func stringFromLocationCoordinate(coordinate: CLLocationCoordinate2D) -> (String) {
 
@@ -67,15 +67,15 @@ class CoordinateFormatter: NSFormatter {
         let numberFormatter = NSNumberFormatter()
 
         switch formatStyle {
-        case .DMS:
+        case .DegreesMinutesSeconds:
             numberFormatter.maximumFractionDigits = maximumSecondsFractionDigits
             let formattedSeconds = numberFormatter.stringFromNumber(seconds)
             return "\(Int(degrees))º \(Int(minutes))' \(formattedSeconds!)\""
-        case .DDM:
+        case .DegreesDecimalMinutes:
             numberFormatter.maximumFractionDigits = maximumMinutesFractionDigits
             let formattedMinutes = numberFormatter.stringFromNumber(minutes)
             return "\(Int(degrees))º \(formattedMinutes!)'"
-        case .Decimal:
+        case .DecimalDegrees:
             numberFormatter.maximumFractionDigits = maximumDegreesFractionDigits
             let formattedDegrees = numberFormatter.stringFromNumber(degrees)
             return "\(formattedDegrees!)º"
