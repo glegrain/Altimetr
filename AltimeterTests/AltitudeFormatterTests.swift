@@ -10,7 +10,9 @@ import XCTest
 @testable import Altimeter
 
 class AltitudeFormatterTests: XCTestCase {
-    
+
+    private let font = UIFont.systemFontOfSize(30, weight: UIFontWeightUltraLight)
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,7 +35,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(3.14159)
         let expected = NSMutableAttributedString(string: "3.1 m")
-        expected.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(1, 2))
+        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(1, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
     
@@ -48,7 +50,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(4122.1)
         let expected = NSMutableAttributedString(string: "4 122.1 m")
-        expected.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(5, 2))
+        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
     
@@ -56,7 +58,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(1000.1)
         let expected = NSMutableAttributedString(string: "1 000.1 m")
-        expected.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(5, 2))
+        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
     
@@ -71,7 +73,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(1000.09)
         let expected = NSMutableAttributedString(string: "1 000.1 m")
-        expected.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(30), range: NSMakeRange(5, 2))
+        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
 
