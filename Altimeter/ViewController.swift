@@ -44,11 +44,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Core Location Manager Delegate
 
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        // Configure location service
+        // Configure location services (Activity Type and Accuracy)
+        // location updates to be paused only when the user does not move a significant distance over a period of time. For background mode
+        //  gives the system the opportunity to save power in situations where the user's location is not likely to be changing.
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.activityType = .Fitness
+        locationManager.pausesLocationUpdatesAutomatically = true
+        // locationManager.allowsBackgroundLocationUpdates = true
+
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
-            // locationManager.allowsBackgroundLocationUpdates = true
         } else {
             locationManager.stopUpdatingLocation()
         }
@@ -101,6 +106,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         self.location = nil
 
+    }
+
+    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
+        print("Paused location updates")
     }
 
     // MARK: - UI
