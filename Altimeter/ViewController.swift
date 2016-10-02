@@ -47,7 +47,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Configure location services (Activity Type and Accuracy)
         // location updates to be paused only when the user does not move a significant distance over a period of time. For background mode
         //  gives the system the opportunity to save power in situations where the user's location is not likely to be changing.
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.activityType = .Fitness
         locationManager.pausesLocationUpdatesAutomatically = true
         // locationManager.allowsBackgroundLocationUpdates = true
