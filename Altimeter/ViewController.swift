@@ -21,10 +21,60 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     private let locationManager = CLLocationManager()
     private let altitudeFormatter = AltitudeFormatter()
+    private let coordinateFormatter = CoordinateFormatter()
 
     private var location: CLLocation? {
         didSet {
             updateUI()
+        }
+    }
+
+    private var unit: AltitudeFormatter.AltitudeFormatterUnit? {
+        // TODO: refactor this
+        get {
+            // Attempt to load user preferences
+            if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
+                if unitName == "metric" {
+                    return AltitudeFormatter.AltitudeFormatterUnit.Meters
+                } else if unitName == "feet" {
+                    return AltitudeFormatter.AltitudeFormatterUnit.Feet
+                }
+            }
+            return nil
+        } set {
+            // Update user defaults
+            let unitName = (newValue == .Meters) ? "meters" : "feet"
+            NSUserDefaults.standardUserDefaults().setObject(unitName, forKey: "unit")
+        }
+    }
+
+    private var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle? {
+        get {
+            let formatIndex = NSUserDefaults.standardUserDefaults().integerForKey("coordinatesFormat")
+            switch formatIndex {
+            case 0:
+                return CoordinateFormatter.NSFormattingFormatStyle.DegreesMinutesSeconds
+            case 1:
+                return CoordinateFormatter.NSFormattingFormatStyle.DegreesDecimalMinutes
+            case 2:
+                return CoordinateFormatter.NSFormattingFormatStyle.DecimalDegrees
+            default:
+                return nil
+            }
+        }
+        set {
+            if newValue != nil {
+                var formatIndex: Int
+                switch newValue! {
+                case .DegreesMinutesSeconds:
+                    formatIndex = 0
+                case .DegreesDecimalMinutes:
+                    formatIndex = 1
+                case .DecimalDegrees:
+                    formatIndex = 2
+                }
+                NSUserDefaults.standardUserDefaults().setObject(formatIndex, forKey: "unit")
+            }
         }
     }
 
@@ -137,7 +187,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     private var altitudeDescription: NSAttributedString {
-        // Create formatted altitude string
+        if unit != nil {
+            altitudeFormatter.unit = unit!
+        }
         if let altitude = location?.altitude {
              return altitudeFormatter.mutableAttributtedStringFromLocationDistance(altitude)
         } else {
@@ -156,7 +208,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     private var verticalAccuracyDescription: String {
         if let verticalAccuracy = location?.verticalAccuracy where verticalAccuracy > 0 {
             var description = "Vertical accuracy: "
-            if altitudeFormatter.unit == .Feet {
+            if unit == .Feet {
                 description += "± \(lround(verticalAccuracy * 3.28084)) ft"
             } else  {
                 description += "± \(lround(verticalAccuracy)) m"
@@ -170,7 +222,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     private var horizontalAccuracyDescription: String {
         if let horizontalAccuracy = location?.horizontalAccuracy where horizontalAccuracy > 0 {
             var description = "Horizontal accuracy: "
-            if altitudeFormatter.unit == .Feet {
+            if unit == .Feet {
                 description += "± \(lround(horizontalAccuracy * 3.28084)) ft"
             } else {
                 description += "± \(lround(horizontalAccuracy)) m"
@@ -182,18 +234,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     private var coordinatesDescription: String? {
+        if coordinatesFormat != nil {
+            coordinateFormatter.formatStyle = coordinatesFormat!
+        }
         if let coordinate = location?.coordinate {
-            return CoordinateFormatter().stringFromLocationCoordinate(coordinate)
+            return coordinateFormatter.stringFromLocationCoordinate(coordinate)
         }
         return nil
     }
 
     @IBAction func changeAltitudeUnit() {
-        // TODO: save to user defaults
-        if altitudeFormatter.unit == .Meters {
-            altitudeFormatter.unit = .Feet
+        if unit == .Meters {
+            unit = .Feet
         } else {
-            altitudeFormatter.unit = .Meters
+            unit = .Meters
         }
 
         updateUI()

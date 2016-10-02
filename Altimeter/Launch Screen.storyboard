@@ -86,6 +86,7 @@
                                 <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="L50-eT-9d7">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="cogwheel" id="wQ2-Tw-and"/>
                                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="3cP-lp-M5g"/>
                                     </navigationItem>
                                 </items>
@@ -110,4 +111,7 @@
             <point key="canvasLocation" x="59" y="467"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cogwheel" width="32" height="32"/>
+    </resources>
 </document>
