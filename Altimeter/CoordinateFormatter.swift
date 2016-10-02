@@ -65,6 +65,7 @@ class CoordinateFormatter: NSFormatter {
         let minutes = (fabs(degrees) - floor(fabs(degrees))) * 60
         let seconds = (minutes - floor(minutes)) * 60
         let numberFormatter = NSNumberFormatter()
+        numberFormatter.minimumIntegerDigits = 1
 
         switch formatStyle {
         case .DegreesMinutesSeconds:
