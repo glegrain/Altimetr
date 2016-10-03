@@ -263,7 +263,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+}
+
+extension UINavigationController {
+
+    // Set status to light content for dark backgrounds
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
 
