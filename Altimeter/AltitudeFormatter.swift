@@ -24,7 +24,6 @@ class AltitudeFormatter: NSNumberFormatter {
         self.generatesDecimalNumbers = true
         self.maximumFractionDigits = 1
         self.usesGroupingSeparator = true
-        self.groupingSeparator = " "
         self.groupingSize = 3
     }
     
