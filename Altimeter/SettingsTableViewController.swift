@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var unitSegmentedControl: UISegmentedControl! {
         didSet {
             if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
-                if unitName == "metric" {
+                if unitName == "meters" {
                     unitSegmentedControl.selectedSegmentIndex = 0
                 } else if unitName == "feet" {
                     unitSegmentedControl.selectedSegmentIndex = 1

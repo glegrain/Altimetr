@@ -34,13 +34,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         get {
             // Attempt to load user preferences
             if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
-                if unitName == "metric" {
+                if unitName == "meters" {
                     return AltitudeFormatter.AltitudeFormatterUnit.Meters
                 } else if unitName == "feet" {
                     return AltitudeFormatter.AltitudeFormatterUnit.Feet
                 }
             }
-            return nil
+            return AltitudeFormatter.AltitudeFormatterUnit.Meters
         } set {
             // Update user defaults
             let unitName = (newValue == .Meters) ? "meters" : "feet"
