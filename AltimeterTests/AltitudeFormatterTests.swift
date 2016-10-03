@@ -42,14 +42,14 @@ class AltitudeFormatterTests: XCTestCase {
     func test4122Meters() {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(4122)
-        let expected = NSMutableAttributedString(string: "4 122 m")
+        let expected = NSMutableAttributedString(string: "4,122 m")
         XCTAssert(output.isEqualToAttributedString(expected))
     }
     
     func test4122dot1Meters() {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(4122.1)
-        let expected = NSMutableAttributedString(string: "4 122.1 m")
+        let expected = NSMutableAttributedString(string: "4,122.1 m")
         expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
@@ -57,7 +57,7 @@ class AltitudeFormatterTests: XCTestCase {
     func test1000dot1Meters() {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(1000.1)
-        let expected = NSMutableAttributedString(string: "1 000.1 m")
+        let expected = NSMutableAttributedString(string: "1,000.1 m")
         expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
@@ -65,14 +65,14 @@ class AltitudeFormatterTests: XCTestCase {
     func test1000dot01Meters() {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(1000.01)
-        let expected = NSMutableAttributedString(string: "1 000 m")
+        let expected = NSMutableAttributedString(string: "1,000 m")
         XCTAssert(output.isEqualToAttributedString(expected))
     }
     
     func test1000dot09Meters() {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedStringFromLocationDistance(1000.09)
-        let expected = NSMutableAttributedString(string: "1 000.1 m")
+        let expected = NSMutableAttributedString(string: "1,000.1 m")
         expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqualToAttributedString(expected))
     }
