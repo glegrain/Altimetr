@@ -10,6 +10,11 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    private struct Keys {
+        static let coordinatesFormat = "coordinatesFormat"
+        static let unit = "unit"
+    }
+
     @IBOutlet var coordinatesSelectionCells: [UITableViewCell]!
 
     private var selectedCoordinateFormatRow: Int? {
@@ -19,20 +24,20 @@ class SettingsTableViewController: UITableViewController {
             }
             if selectedCoordinateFormatRow != nil {
                 coordinatesSelectionCells[selectedCoordinateFormatRow!].accessoryType = .Checkmark
-                NSUserDefaults.standardUserDefaults().setInteger(selectedCoordinateFormatRow!, forKey: "coordinatesFormat")
+                NSUserDefaults.standardUserDefaults().setInteger(selectedCoordinateFormatRow!, forKey: Keys.coordinatesFormat)
             }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedCoordinateFormatRow = NSUserDefaults.standardUserDefaults().integerForKey("coordinatesFormat")
+        selectedCoordinateFormatRow = NSUserDefaults.standardUserDefaults().integerForKey(Keys.coordinatesFormat)
     }
 
 
     @IBOutlet weak var unitSegmentedControl: UISegmentedControl! {
         didSet {
-            if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
+            if let unitName = NSUserDefaults.standardUserDefaults().stringForKey(Keys.unit) {
                 if unitName == "meters" {
                     unitSegmentedControl.selectedSegmentIndex = 0
                 } else if unitName == "feet" {
@@ -44,7 +49,7 @@ class SettingsTableViewController: UITableViewController {
 
     @IBAction func changeUnit(sender: UISegmentedControl) {
         let unitName = (sender.selectedSegmentIndex == 0) ? "meters" : "feet"
-        NSUserDefaults.standardUserDefaults().setObject(unitName, forKey: "unit")
+        NSUserDefaults.standardUserDefaults().setObject(unitName, forKey: Keys.unit)
     }
 
     // MARK: Table View Delegate

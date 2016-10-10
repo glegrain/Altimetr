@@ -33,6 +33,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // TODO: refactor this
         get {
             // Attempt to load user preferences
+            // NOTE: NSUserDefaults caches the information
             if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
                 if unitName == "meters" {
                     return AltitudeFormatter.AltitudeFormatterUnit.Meters
@@ -50,6 +51,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     private var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle? {
         get {
+            // NOTE: NSUserDefaults caches the information
             let formatIndex = NSUserDefaults.standardUserDefaults().integerForKey("coordinatesFormat")
             switch formatIndex {
             case 0:

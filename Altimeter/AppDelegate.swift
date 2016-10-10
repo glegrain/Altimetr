@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Register the preference defaults
+        // You must provide a dictionary of all the default values you need to register
+
         return true
     }
     
