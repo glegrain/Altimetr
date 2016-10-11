@@ -19,47 +19,47 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var horizontalAccuracyProgress: SignalStrengthView!
     @IBOutlet weak var shareButton: UIBarButtonItem!
 
-    private let locationManager = CLLocationManager()
-    private let altitudeFormatter = AltitudeFormatter()
-    private let coordinateFormatter = CoordinateFormatter()
+    fileprivate let locationManager = CLLocationManager()
+    fileprivate let altitudeFormatter = AltitudeFormatter()
+    fileprivate let coordinateFormatter = CoordinateFormatter()
 
-    private var location: CLLocation? {
+    fileprivate var location: CLLocation? {
         didSet {
             updateUI()
         }
     }
 
-    private var unit: AltitudeFormatter.AltitudeFormatterUnit? {
+    fileprivate var unit: AltitudeFormatter.AltitudeFormatterUnit? {
         // TODO: refactor this
         get {
             // Attempt to load user preferences
             // NOTE: NSUserDefaults caches the information
-            if let unitName = NSUserDefaults.standardUserDefaults().stringForKey("unit") {
+            if let unitName = UserDefaults.standard.string(forKey: "unit") {
                 if unitName == "meters" {
-                    return AltitudeFormatter.AltitudeFormatterUnit.Meters
+                    return AltitudeFormatter.AltitudeFormatterUnit.meters
                 } else if unitName == "feet" {
-                    return AltitudeFormatter.AltitudeFormatterUnit.Feet
+                    return AltitudeFormatter.AltitudeFormatterUnit.feet
                 }
             }
-            return AltitudeFormatter.AltitudeFormatterUnit.Meters
+            return AltitudeFormatter.AltitudeFormatterUnit.meters
         } set {
             // Update user defaults
-            let unitName = (newValue == .Meters) ? "meters" : "feet"
-            NSUserDefaults.standardUserDefaults().setObject(unitName, forKey: "unit")
+            let unitName = (newValue == .meters) ? "meters" : "feet"
+            UserDefaults.standard.set(unitName, forKey: "unit")
         }
     }
 
-    private var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle? {
+    fileprivate var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle? {
         get {
             // NOTE: NSUserDefaults caches the information
-            let formatIndex = NSUserDefaults.standardUserDefaults().integerForKey("coordinatesFormat")
+            let formatIndex = UserDefaults.standard.integer(forKey: "coordinatesFormat")
             switch formatIndex {
             case 0:
-                return CoordinateFormatter.NSFormattingFormatStyle.DegreesMinutesSeconds
+                return CoordinateFormatter.NSFormattingFormatStyle.degreesMinutesSeconds
             case 1:
-                return CoordinateFormatter.NSFormattingFormatStyle.DegreesDecimalMinutes
+                return CoordinateFormatter.NSFormattingFormatStyle.degreesDecimalMinutes
             case 2:
-                return CoordinateFormatter.NSFormattingFormatStyle.DecimalDegrees
+                return CoordinateFormatter.NSFormattingFormatStyle.decimalDegrees
             default:
                 return nil
             }
@@ -68,14 +68,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if newValue != nil {
                 var formatIndex: Int
                 switch newValue! {
-                case .DegreesMinutesSeconds:
+                case .degreesMinutesSeconds:
                     formatIndex = 0
-                case .DegreesDecimalMinutes:
+                case .degreesDecimalMinutes:
                     formatIndex = 1
-                case .DecimalDegrees:
+                case .decimalDegrees:
                     formatIndex = 2
                 }
-                NSUserDefaults.standardUserDefaults().setObject(formatIndex, forKey: "unit")
+                UserDefaults.standard.set(formatIndex, forKey: "unit")
             }
         }
     }
@@ -89,29 +89,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Assign Core Location Manager delegation
         locationManager.delegate = self
 
-        // NOTE: location manager will start updating location in the locationManager:didChangeAuthorizationStatus delegate method
+        locationManager.startUpdatingLocation()
 
     }
 
     // MARK: - Core Location Manager Delegate
 
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         // Configure location services (Activity Type and Accuracy)
         // location updates to be paused only when the user does not move a significant distance over a period of time. For background mode
         //  gives the system the opportunity to save power in situations where the user's location is not likely to be changing.
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.activityType = .Fitness
+        locationManager.activityType = .fitness
         locationManager.pausesLocationUpdatesAutomatically = true
         // locationManager.allowsBackgroundLocationUpdates = true
 
-        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         } else {
             locationManager.stopUpdatingLocation()
         }
     }
 
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.location = location
         }
@@ -123,53 +123,53 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 altitude: 4122.3,
                 horizontalAccuracy: 20,
                 verticalAccuracy: 5,
-                timestamp: NSDate(timeIntervalSince1970: 1462782883)
+                timestamp: Date(timeIntervalSince1970: 1462782883)
             )
             self.location = fakeLocation
         #endif
     }
 
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 
         var alert: UIAlertController
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-            if let url = NSURL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.sharedApplication().openURL(url)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
 
         switch CLLocationManager.authorizationStatus() {
-        case .Denied, .Restricted:
+        case .denied, .restricted:
             alert = UIAlertController(
                 title: "Location Access Disabled",
                 message: "In order to get your altitude, please open this app's settings and set location access to 'Always' or 'While Using the App.",
-                preferredStyle: .Alert
+                preferredStyle: .alert
             )
             alert.addAction(cancelAction)
             alert.addAction(openAction)
             self.locationManager.stopUpdatingLocation()
         default:
-            alert = UIAlertController(title: "Error", message:"Your location could not be retreived.", preferredStyle: .Alert)
+            alert = UIAlertController(title: "Error", message:"Your location could not be retreived.", preferredStyle: .alert)
             alert.addAction(cancelAction)
             // The location manager does not stop updating location because the signal might come back
         }
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
 
         self.location = nil
 
     }
 
-    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
+    func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {
         print("Paused location updates")
     }
 
     // MARK: - UI
 
-    private func updateUI() {
+    fileprivate func updateUI() {
 
         // Disable share button if location is unavailable
-        shareButton.enabled = (location != nil)
+        shareButton.isEnabled = (location != nil)
 
         altitudeLabel.attributedText = altitudeDescription
 
@@ -188,17 +188,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     }
 
-    private var altitudeDescription: NSAttributedString {
+    fileprivate var altitudeDescription: NSAttributedString {
         if unit != nil {
             altitudeFormatter.unit = unit!
         }
         if let altitude = location?.altitude {
-             return altitudeFormatter.mutableAttributtedStringFromLocationDistance(altitude)
+            return altitudeFormatter.mutableAttributtedString(from: altitude)
         } else {
             // Replace altitude label with a "No data" text
             let attributes = [
-                NSFontAttributeName: UIFont.systemFontOfSize(17),
-                NSForegroundColorAttributeName: UIColor.darkGrayColor()
+                NSFontAttributeName: UIFont.systemFont(ofSize: 17),
+                NSForegroundColorAttributeName: UIColor.darkGray
             ]
             return NSAttributedString(string: "No data", attributes: attributes)
         }
@@ -207,10 +207,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Create accuracy descriptions
     // NOTE: negative value in accuracy indicates that the altitude value is invalid.
     //       Accuracy is in meters.
-    private var verticalAccuracyDescription: String {
-        if let verticalAccuracy = location?.verticalAccuracy where verticalAccuracy > 0 {
+    fileprivate var verticalAccuracyDescription: String {
+        if let verticalAccuracy = location?.verticalAccuracy , verticalAccuracy > 0 {
             var description = "Vertical accuracy: "
-            if unit == .Feet {
+            if unit == .feet {
                 description += "± \(lround(verticalAccuracy * 3.28084)) ft"
             } else  {
                 description += "± \(lround(verticalAccuracy)) m"
@@ -221,10 +221,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    private var horizontalAccuracyDescription: String {
-        if let horizontalAccuracy = location?.horizontalAccuracy where horizontalAccuracy > 0 {
+    fileprivate var horizontalAccuracyDescription: String {
+        if let horizontalAccuracy = location?.horizontalAccuracy , horizontalAccuracy > 0 {
             var description = "Horizontal accuracy: "
-            if unit == .Feet {
+            if unit == .feet {
                 description += "± \(lround(horizontalAccuracy * 3.28084)) ft"
             } else {
                 description += "± \(lround(horizontalAccuracy)) m"
@@ -235,33 +235,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    private var coordinatesDescription: String? {
+    fileprivate var coordinatesDescription: String? {
         if coordinatesFormat != nil {
             coordinateFormatter.formatStyle = coordinatesFormat!
         }
         if let coordinate = location?.coordinate {
-            return coordinateFormatter.stringFromLocationCoordinate(coordinate)
+            return coordinateFormatter.string(from: coordinate)
         }
         return nil
     }
 
     @IBAction func changeAltitudeUnit() {
-        if unit == .Meters {
-            unit = .Feet
+        if unit == .meters {
+            unit = .feet
         } else {
-            unit = .Meters
+            unit = .meters
         }
 
         updateUI()
 
     }
 
-    @IBAction func share(sender: AnyObject) {
+    @IBAction func share(_ sender: AnyObject) {
         if location != nil {
-            let activityItems = [CoordinateFormatter().stringFromLocationCoordinate(location!.coordinate)]
+            let activityItems = [CoordinateFormatter().string(from: location!.coordinate)]
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
             activityViewController.title = "Share my location"
-            self.presentViewController(activityViewController, animated: true, completion: nil)
+            self.present(activityViewController, animated: true, completion: nil)
         }
     }
 
@@ -270,8 +270,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 extension UINavigationController {
 
     // Set status to light content for dark backgrounds
-    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
 }

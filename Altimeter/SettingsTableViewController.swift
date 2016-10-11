@@ -10,34 +10,34 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    private struct Keys {
+    fileprivate struct Keys {
         static let coordinatesFormat = "coordinatesFormat"
         static let unit = "unit"
     }
 
     @IBOutlet var coordinatesSelectionCells: [UITableViewCell]!
 
-    private var selectedCoordinateFormatRow: Int? {
+    fileprivate var selectedCoordinateFormatRow: Int? {
         didSet {
             if oldValue != nil {
-                coordinatesSelectionCells[oldValue!].accessoryType = .None
+                coordinatesSelectionCells[oldValue!].accessoryType = .none
             }
             if selectedCoordinateFormatRow != nil {
-                coordinatesSelectionCells[selectedCoordinateFormatRow!].accessoryType = .Checkmark
-                NSUserDefaults.standardUserDefaults().setInteger(selectedCoordinateFormatRow!, forKey: Keys.coordinatesFormat)
+                coordinatesSelectionCells[selectedCoordinateFormatRow!].accessoryType = .checkmark
+                UserDefaults.standard.set(selectedCoordinateFormatRow!, forKey: Keys.coordinatesFormat)
             }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedCoordinateFormatRow = NSUserDefaults.standardUserDefaults().integerForKey(Keys.coordinatesFormat)
+        selectedCoordinateFormatRow = UserDefaults.standard.integer(forKey: Keys.coordinatesFormat)
     }
 
 
     @IBOutlet weak var unitSegmentedControl: UISegmentedControl! {
         didSet {
-            if let unitName = NSUserDefaults.standardUserDefaults().stringForKey(Keys.unit) {
+            if let unitName = UserDefaults.standard.string(forKey: Keys.unit) {
                 if unitName == "meters" {
                     unitSegmentedControl.selectedSegmentIndex = 0
                 } else if unitName == "feet" {
@@ -47,16 +47,16 @@ class SettingsTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func changeUnit(sender: UISegmentedControl) {
+    @IBAction func changeUnit(_ sender: UISegmentedControl) {
         let unitName = (sender.selectedSegmentIndex == 0) ? "meters" : "feet"
-        NSUserDefaults.standardUserDefaults().setObject(unitName, forKey: Keys.unit)
+        UserDefaults.standard.set(unitName, forKey: Keys.unit)
     }
 
     // MARK: Table View Delegate
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 {
-            selectedCoordinateFormatRow = indexPath.row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 1 {
+            selectedCoordinateFormatRow = (indexPath as NSIndexPath).row
         }
 
     }

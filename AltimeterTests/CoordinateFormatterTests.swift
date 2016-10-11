@@ -12,7 +12,7 @@ import CoreLocation
 
 class CoordinateFormatterTests: XCTestCase {
 
-    private let formatter = CoordinateFormatter()
+    fileprivate let formatter = CoordinateFormatter()
 
     override func setUp() {
         super.setUp()
@@ -26,27 +26,27 @@ class CoordinateFormatterTests: XCTestCase {
 
     func testConvertToDMS() {
         let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
-        let result = formatter.stringFromLocationCoordinate(coordinates)
+        let result = formatter.string(from: coordinates)
         XCTAssertEqual(result, "45° 56' 5\" N, 6° 58' 13\" E")
     }
 
     func testConvertToDMSWithNegativeLongitude() {
         let coordinates = CLLocationCoordinate2D(latitude: 40.446111, longitude: -79.982222)
-        let result = formatter.stringFromLocationCoordinate(coordinates)
+        let result = formatter.string(from: coordinates)
         XCTAssertEqual(result, "40° 26' 46\" N, 79° 58' 56\" W")
     }
 
     func testConvertToDDM() {
-        formatter.formatStyle = .DegreesDecimalMinutes
+        formatter.formatStyle = .degreesDecimalMinutes
         let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
-        let result = formatter.stringFromLocationCoordinate(coordinates)
+        let result = formatter.string(from: coordinates)
         XCTAssertEqual(result, "45° 56.077' N, 6° 58.214' E")
     }
 
     func testConvertToDD() {
-        formatter.formatStyle = .DecimalDegrees
+        formatter.formatStyle = .decimalDegrees
         let coordinates = CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240)
-        let result = formatter.stringFromLocationCoordinate(coordinates)
+        let result = formatter.string(from: coordinates)
         XCTAssertEqual(result, "45.934613° N, 6.97024° E")
     }
     

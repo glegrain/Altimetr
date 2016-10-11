@@ -12,7 +12,7 @@ import UIKit
 class SignalStrengthView: UIProgressView {
     
     // set bar progress and color according to signal accuracy
-    override func setProgress(progress: Float, animated: Bool) {
+    override func setProgress(_ progress: Float, animated: Bool) {
         let accuracy = progress
         var barProgress: Float
         
@@ -24,13 +24,13 @@ class SignalStrengthView: UIProgressView {
         super.setProgress(barProgress, animated: animated)
         
         if accuracy < 10 {
-            progressTintColor! = UIColor.greenColor()
+            progressTintColor! = UIColor.green
         } else if accuracy > 100 {
-            progressTintColor! = UIColor.redColor()
+            progressTintColor! = UIColor.red
         } else if accuracy < 20 {
-            progressTintColor! = UIColor.yellowColor()
+            progressTintColor! = UIColor.yellow
         } else {
-            progressTintColor! = UIColor.orangeColor()
+            progressTintColor! = UIColor.orange
         }
     }
 }

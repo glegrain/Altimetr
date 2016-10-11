@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         
     @IBOutlet weak var altitudeLabel: UILabel!
     
-    private var locationManager = CLLocationManager()
+    fileprivate var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,27 +35,27 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         // Dispose of any resources that can be recreated.
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
     
     
     // MARK: - CLLocationManagerDelegate
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let altitude = locations.last?.altitude {
-            let numberFormatter = NSNumberFormatter()
-            altitudeLabel.text = numberFormatter.stringFromNumber(altitude)! + " m"
+            let numberFormatter = NumberFormatter()
+            altitudeLabel.text = numberFormatter.string(from: NSNumber(value: altitude))! + " m"
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         altitudeLabel.text = error.localizedDescription
     }
     

@@ -9,14 +9,14 @@
 import Foundation
 import UIKit.UIFont
 
-class AltitudeFormatter: NSNumberFormatter {
+class AltitudeFormatter: NumberFormatter {
 
     enum AltitudeFormatterUnit {
-        case Meters
-        case Feet
+        case meters
+        case feet
     }
 
-    var unit: AltitudeFormatterUnit = .Meters
+    var unit: AltitudeFormatterUnit = .meters
     
     override init() {
         super.init()
@@ -31,30 +31,34 @@ class AltitudeFormatter: NSNumberFormatter {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func mutableAttributtedStringFromLocationDistance(altitude: Double) -> NSMutableAttributedString {
+    func mutableAttributtedString(from altitude: Double) -> NSMutableAttributedString {
 
         var unitString: String
         var convertedAltitude: Double
         switch  unit{
-        case .Meters:
+        case .meters:
             unitString = " m"
             convertedAltitude = altitude
-        case .Feet:
+        case .feet:
             unitString = " ft"
             convertedAltitude = altitude * 3.28084
         }
 
-        let altitudeStr = self.stringFromNumber(convertedAltitude)!.stringByAppendingString(unitString)
+        let altitudeStr = self.string(from: NSNumber(value: convertedAltitude))! + unitString
         
         // if the altitude string has a decimal, make it smaller
         let altitudeString = NSMutableAttributedString(string: altitudeStr)
-        let decimalSeparatorsSet = NSCharacterSet(charactersInString: self.decimalSeparator!)
-        if let decimalSeparatorRange = altitudeStr.rangeOfCharacterFromSet(decimalSeparatorsSet) {
-            let decimalSeparatorPosition = altitudeStr.startIndex.distanceTo(decimalSeparatorRange.endIndex.predecessor())
+        let decimalSeparatorsSet = CharacterSet(charactersIn: self.decimalSeparator!)
+        if let decimalSeparatorRange = altitudeStr.rangeOfCharacter(from: decimalSeparatorsSet) {
+            let decimalSeparatorPosition =
+                altitudeStr.characters.distance(
+                    from: altitudeStr.startIndex,
+                    to: decimalSeparatorRange.lowerBound
+            )
             let rangeToChange = NSMakeRange(decimalSeparatorPosition, 1 + maximumFractionDigits)
             altitudeString.addAttribute(
                 NSFontAttributeName,
-                value: UIFont.systemFontOfSize(30, weight: UIFontWeightUltraLight),
+                value: UIFont.systemFont(ofSize: 30, weight: UIFontWeightUltraLight),
                 range: rangeToChange
             )
         }
