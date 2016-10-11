@@ -11,12 +11,7 @@ import UIKit.UIFont
 
 class AltitudeFormatter: NumberFormatter {
 
-    enum AltitudeFormatterUnit {
-        case meters
-        case feet
-    }
-
-    var unit: AltitudeFormatterUnit = .meters
+    var unit: UnitLength = .meters
     
     override init() {
         super.init()
@@ -35,13 +30,15 @@ class AltitudeFormatter: NumberFormatter {
 
         var unitString: String
         var convertedAltitude: Double
-        switch  unit{
-        case .meters:
+        switch unit {
+        case UnitLength.meters:
             unitString = " m"
             convertedAltitude = altitude
-        case .feet:
+        case UnitLength.feet:
             unitString = " ft"
             convertedAltitude = altitude * 3.28084
+        default:
+            fatalError("Not implemented")
         }
 
         let altitudeStr = self.string(from: NSNumber(value: convertedAltitude))! + unitString

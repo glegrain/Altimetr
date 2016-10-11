@@ -10,46 +10,39 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    fileprivate struct Keys {
-        static let coordinatesFormat = "coordinatesFormat"
-        static let unit = "unit"
-    }
+    fileprivate let settings = Settings()
 
     @IBOutlet var coordinatesSelectionCells: [UITableViewCell]!
 
-    fileprivate var selectedCoordinateFormatRow: Int? {
+    fileprivate var selectedCoordinateFormatRow: Int! {
         didSet {
             if oldValue != nil {
                 coordinatesSelectionCells[oldValue!].accessoryType = .none
             }
-            if selectedCoordinateFormatRow != nil {
-                coordinatesSelectionCells[selectedCoordinateFormatRow!].accessoryType = .checkmark
-                UserDefaults.standard.set(selectedCoordinateFormatRow!, forKey: Keys.coordinatesFormat)
-            }
+            coordinatesSelectionCells[selectedCoordinateFormatRow!].accessoryType = .checkmark
+            settings.coordinatesFormat = CoordinateFormatter.NSFormattingFormatStyle(rawValue: selectedCoordinateFormatRow)!
         }
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        selectedCoordinateFormatRow = UserDefaults.standard.integer(forKey: Keys.coordinatesFormat)
+        selectedCoordinateFormatRow = self.settings.coordinatesFormat.rawValue
     }
-
 
     @IBOutlet weak var unitSegmentedControl: UISegmentedControl! {
         didSet {
-            if let unitName = UserDefaults.standard.string(forKey: Keys.unit) {
-                if unitName == "meters" {
-                    unitSegmentedControl.selectedSegmentIndex = 0
-                } else if unitName == "feet" {
-                    unitSegmentedControl.selectedSegmentIndex = 1
-                }
+            switch settings.distanceUnit {
+            case UnitLength.meters:
+                unitSegmentedControl.selectedSegmentIndex = 0
+            case UnitLength.feet:
+                unitSegmentedControl.selectedSegmentIndex = 1
+            default:
+                fatalError("Not implemented")
             }
         }
     }
 
     @IBAction func changeUnit(_ sender: UISegmentedControl) {
-        let unitName = (sender.selectedSegmentIndex == 0) ? "meters" : "feet"
-        UserDefaults.standard.set(unitName, forKey: Keys.unit)
+        settings.distanceUnit = (sender.selectedSegmentIndex == 0) ? .meters : .feet
     }
 
     // MARK: Table View Delegate

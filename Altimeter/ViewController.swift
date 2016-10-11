@@ -22,61 +22,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     fileprivate let locationManager = CLLocationManager()
     fileprivate let altitudeFormatter = AltitudeFormatter()
     fileprivate let coordinateFormatter = CoordinateFormatter()
+    fileprivate var userDefaultsObserver: NSObjectProtocol?
+    fileprivate let settings = Settings()
 
     fileprivate var location: CLLocation? {
         didSet {
             updateUI()
-        }
-    }
-
-    fileprivate var unit: AltitudeFormatter.AltitudeFormatterUnit? {
-        // TODO: refactor this
-        get {
-            // Attempt to load user preferences
-            // NOTE: NSUserDefaults caches the information
-            if let unitName = UserDefaults.standard.string(forKey: "unit") {
-                if unitName == "meters" {
-                    return AltitudeFormatter.AltitudeFormatterUnit.meters
-                } else if unitName == "feet" {
-                    return AltitudeFormatter.AltitudeFormatterUnit.feet
-                }
-            }
-            return AltitudeFormatter.AltitudeFormatterUnit.meters
-        } set {
-            // Update user defaults
-            let unitName = (newValue == .meters) ? "meters" : "feet"
-            UserDefaults.standard.set(unitName, forKey: "unit")
-        }
-    }
-
-    fileprivate var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle? {
-        get {
-            // NOTE: NSUserDefaults caches the information
-            let formatIndex = UserDefaults.standard.integer(forKey: "coordinatesFormat")
-            switch formatIndex {
-            case 0:
-                return CoordinateFormatter.NSFormattingFormatStyle.degreesMinutesSeconds
-            case 1:
-                return CoordinateFormatter.NSFormattingFormatStyle.degreesDecimalMinutes
-            case 2:
-                return CoordinateFormatter.NSFormattingFormatStyle.decimalDegrees
-            default:
-                return nil
-            }
-        }
-        set {
-            if newValue != nil {
-                var formatIndex: Int
-                switch newValue! {
-                case .degreesMinutesSeconds:
-                    formatIndex = 0
-                case .degreesDecimalMinutes:
-                    formatIndex = 1
-                case .decimalDegrees:
-                    formatIndex = 2
-                }
-                UserDefaults.standard.set(formatIndex, forKey: "unit")
-            }
         }
     }
 
@@ -90,6 +41,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
 
         locationManager.startUpdatingLocation()
+
+        // Observe Settings changes made to User Defaults
+        userDefaultsObserver = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: OperationQueue.main) { (notification) in
+                self.updateUI()
+        }
 
     }
 
@@ -189,9 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     fileprivate var altitudeDescription: NSAttributedString {
-        if unit != nil {
-            altitudeFormatter.unit = unit!
-        }
+        altitudeFormatter.unit = settings.distanceUnit
         if let altitude = location?.altitude {
             return altitudeFormatter.mutableAttributtedString(from: altitude)
         } else {
@@ -210,7 +167,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     fileprivate var verticalAccuracyDescription: String {
         if let verticalAccuracy = location?.verticalAccuracy , verticalAccuracy > 0 {
             var description = "Vertical accuracy: "
-            if unit == .feet {
+            if settings.distanceUnit == .feet {
                 description += "± \(lround(verticalAccuracy * 3.28084)) ft"
             } else  {
                 description += "± \(lround(verticalAccuracy)) m"
@@ -224,7 +181,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     fileprivate var horizontalAccuracyDescription: String {
         if let horizontalAccuracy = location?.horizontalAccuracy , horizontalAccuracy > 0 {
             var description = "Horizontal accuracy: "
-            if unit == .feet {
+            if settings.distanceUnit == .feet {
                 description += "± \(lround(horizontalAccuracy * 3.28084)) ft"
             } else {
                 description += "± \(lround(horizontalAccuracy)) m"
@@ -236,9 +193,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     fileprivate var coordinatesDescription: String? {
-        if coordinatesFormat != nil {
-            coordinateFormatter.formatStyle = coordinatesFormat!
-        }
+        coordinateFormatter.formatStyle = settings.coordinatesFormat
         if let coordinate = location?.coordinate {
             return coordinateFormatter.string(from: coordinate)
         }
@@ -246,14 +201,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBAction func changeAltitudeUnit() {
-        if unit == .meters {
-            unit = .feet
+        if settings.distanceUnit == .meters {
+            settings.distanceUnit = .feet
         } else {
-            unit = .meters
+            settings.distanceUnit = .meters
         }
-
         updateUI()
-
     }
 
     @IBAction func share(_ sender: AnyObject) {
