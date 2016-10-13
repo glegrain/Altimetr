@@ -167,11 +167,11 @@
                         <sections>
                             <tableViewSection headerTitle="Defaults" id="zBd-SR-wYL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Kzn-jV-1RV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Kzn-jV-1RV">
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kzn-jV-1RV" id="yA2-0l-uCB">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="Kzn-jV-1RV" id="yA2-0l-uCB">
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OFM-04-o1P">
@@ -193,7 +193,7 @@
                                                 <constraint firstItem="OFM-04-o1P" firstAttribute="bottom" secondItem="yA2-0l-uCB" secondAttribute="bottomMargin" id="1tF-0c-5YY"/>
                                                 <constraint firstItem="OFM-04-o1P" firstAttribute="centerY" secondItem="oA5-Nr-cnI" secondAttribute="centerY" id="L3r-pU-P0I"/>
                                                 <constraint firstItem="OFM-04-o1P" firstAttribute="firstBaseline" secondItem="oA5-Nr-cnI" secondAttribute="baseline" id="Mde-ZC-R61"/>
-                                                <constraint firstItem="oA5-Nr-cnI" firstAttribute="leading" secondItem="yA2-0l-uCB" secondAttribute="leadingMargin" constant="10" id="Me5-fs-ZWE"/>
+                                                <constraint firstItem="oA5-Nr-cnI" firstAttribute="leading" secondItem="yA2-0l-uCB" secondAttribute="leadingMargin" id="Me5-fs-ZWE"/>
                                                 <constraint firstItem="oA5-Nr-cnI" firstAttribute="centerY" secondItem="OFM-04-o1P" secondAttribute="centerY" id="NsY-gT-c6b"/>
                                                 <constraint firstItem="OFM-04-o1P" firstAttribute="centerY" secondItem="oA5-Nr-cnI" secondAttribute="centerY" id="P6P-VI-p5q"/>
                                                 <constraint firstItem="OFM-04-o1P" firstAttribute="baseline" secondItem="oA5-Nr-cnI" secondAttribute="firstBaseline" id="c3d-LW-6Xo"/>
@@ -215,21 +215,21 @@
                             <tableViewSection headerTitle="Coordinates format" id="Jhk-K9-UJJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="L7x-KD-btk" detailTextLabel="ITl-jk-gZE" style="IBUITableViewCellStyleSubtitle" id="wL2-cI-sWf">
-                                        <rect key="frame" x="0.0" y="156" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="157" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wL2-cI-sWf" id="QC1-KG-LFf">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="DD° MM' SS&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L7x-KD-btk">
-                                                    <frame key="frameInset" minX="15" minY="6" width="95.5" height="19.5"/>
+                                                    <frame key="frameInset" minX="15" minY="5" width="96" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="45° 56' 5&quot; N, 6° 58' 13&quot; E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ITl-jk-gZE">
-                                                    <frame key="frameInset" minX="15" minY="25.5" width="133.5" height="13.5"/>
+                                                    <frame key="frameInset" minX="15" minY="25" width="134" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -239,21 +239,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="yiV-fC-Qq0" detailTextLabel="gmZ-zs-vQL" style="IBUITableViewCellStyleSubtitle" id="s9a-Ud-ch3">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="201" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9a-Ud-ch3" id="68i-vf-vnE">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="DD° MM.MMM'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yiV-fC-Qq0">
-                                                    <frame key="frameInset" minX="15" minY="6" width="110.5" height="19.5"/>
+                                                    <frame key="frameInset" minX="15" minY="5" width="111" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="45° 56.077' N, 6° 58.214' E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gmZ-zs-vQL">
-                                                    <frame key="frameInset" minX="15" minY="25.5" width="142.5" height="13.5"/>
+                                                    <frame key="frameInset" minX="15" minY="25" width="143" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -263,21 +263,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="oUd-SI-8eA" detailTextLabel="TxI-FV-cao" style="IBUITableViewCellStyleSubtitle" id="d8w-Hj-Xb9">
-                                        <rect key="frame" x="0.0" y="244" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="245" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8w-Hj-Xb9" id="woV-QH-1cb">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="DD.DDDDDD°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oUd-SI-8eA">
-                                                    <frame key="frameInset" minX="15" minY="6" width="101" height="19.5"/>
+                                                    <frame key="frameInset" minX="15" minY="5" width="101" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="45.934613° N, 6.97024° E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TxI-FV-cao">
-                                                    <frame key="frameInset" minX="15" minY="25.5" width="138" height="13.5"/>
+                                                    <frame key="frameInset" minX="15" minY="25" width="138" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
