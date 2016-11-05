@@ -2,7 +2,7 @@ Altimeter
 =========
 [![Build Status](https://travis-ci.org/glegrain/Altimeter.svg?branch=master)](https://travis-ci.org/glegrain/Altimeter)
 
-iPhone altimeter designed for the outdoors.
+iOS altimeter designed for outdoor activities.
 
 ![Screenshot](https://github.com/glegrain/Altimeter/raw/master/img/screenshot.png)
 ![Settings screenshot](https://github.com/glegrain/Altimeter/raw/master/img/settings.png)
