@@ -1,6 +1,6 @@
 //
 //  SettingsTableViewController.swift
-//  Altimeter
+//  Altimetr
 //
 //  Created by Guillaume Legrain on 10/2/16.
 //  Copyright © 2016 Guillaume Legrain. All rights reserved.

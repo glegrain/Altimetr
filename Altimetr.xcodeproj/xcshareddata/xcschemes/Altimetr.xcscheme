@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F931CF2E190910D300D92AB4"
-               BuildableName = "Altimeter.app"
-               BlueprintName = "Altimeter"
-               ReferencedContainer = "container:Altimeter.xcodeproj">
+               BuildableName = "Altimetr.app"
+               BlueprintName = "Altimetr"
+               ReferencedContainer = "container:Altimetr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F9FDBD4D1D8EE9620001CD31"
-               BuildableName = "AltimeterTests.xctest"
-               BlueprintName = "AltimeterTests"
-               ReferencedContainer = "container:Altimeter.xcodeproj">
+               BuildableName = "AltimetrTests.xctest"
+               BlueprintName = "AltimetrTests"
+               ReferencedContainer = "container:Altimetr.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F931CF2E190910D300D92AB4"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "Altimetr.app"
+            BlueprintName = "Altimetr"
+            ReferencedContainer = "container:Altimetr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F931CF2E190910D300D92AB4"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "Altimetr.app"
+            BlueprintName = "Altimetr"
+            ReferencedContainer = "container:Altimetr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F931CF2E190910D300D92AB4"
-            BuildableName = "Altimeter.app"
-            BlueprintName = "Altimeter"
-            ReferencedContainer = "container:Altimeter.xcodeproj">
+            BuildableName = "Altimetr.app"
+            BlueprintName = "Altimetr"
+            ReferencedContainer = "container:Altimetr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

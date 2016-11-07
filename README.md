@@ -1,12 +1,12 @@
-Altimeter
+Altimetr
 =========
-[![Build Status](https://travis-ci.org/glegrain/Altimeter.svg?branch=master)](https://travis-ci.org/glegrain/Altimeter)
+[![Build Status](https://travis-ci.org/glegrain/Altimetr.svg?branch=master)](https://travis-ci.org/glegrain/Altimetr)
 
 iOS altimeter designed for outdoor activities.
 
-![Screenshot](https://github.com/glegrain/Altimeter/raw/master/img/screenshot.png)
-![Settings screenshot](https://github.com/glegrain/Altimeter/raw/master/img/settings.png)
-![Today Extension screenshot](https://github.com/glegrain/Altimeter/raw/master/img/today.png)
+![Screenshot](https://github.com/glegrain/Altimetr/raw/master/img/screenshot.png)
+![Settings screenshot](https://github.com/glegrain/Altimetr/raw/master/img/settings.png)
+![Today Extension screenshot](https://github.com/glegrain/Altimetr/raw/master/img/today.png)
 
 
 #Features
@@ -23,5 +23,5 @@ iOS altimeter designed for outdoor activities.
 #How to build
 
 1. Open the project with Xcode 7.3
-2. Rename the bundle identifier to something unique and different (for example `com.[yourname].Altimeter`)
+2. Rename the bundle identifier to something unique and different (for example `com.[yourname].Altimetr`)
 3. Build & Run

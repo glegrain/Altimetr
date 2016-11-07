@@ -1,13 +1,13 @@
 //
 //  CoordinateFormatterTests.swift
-//  Altimeter
+//  Altimetr
 //
 //  Created by Guillaume Legrain on 10/1/16.
 //  Copyright © 2016 Guillaume Legrain. All rights reserved.
 //
 
 import XCTest
-@testable import Altimeter
+@testable import Altimetr
 import CoreLocation
 
 class CoordinateFormatterTests: XCTestCase {

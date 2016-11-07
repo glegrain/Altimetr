@@ -1,6 +1,6 @@
 //
 //  TodayViewController.swift
-//  Altimeter Today
+//  Altimetr Today
 //
 //  Created by Guillaume Legrain on 9/16/16.
 //  Copyright © 2016 Guillaume Legrain. All rights reserved.
