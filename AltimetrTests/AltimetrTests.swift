@@ -1,6 +1,6 @@
 //
-//  AltimeterTests.swift
-//  AltimeterTests
+//  AltimetrTests.swift
+//  AltimetrTests
 //
 //  Created by Guillaume Legrain on 9/18/16.
 //  Copyright © 2016 Guillaume Legrain. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class AltimeterTests: XCTestCase {
+class AltimetrTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
