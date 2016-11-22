@@ -16,6 +16,8 @@
 		F931CF4B190910D300D92AB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F931CF4A190910D300D92AB4 /* Images.xcassets */; };
 		F931CF681909118800D92AB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F931CF671909118800D92AB4 /* CoreLocation.framework */; };
 		F931EDE81DE4DF8A0013EE83 /* AltitudeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FDBD461D8ED4E00001CD31 /* AltitudeFormatter.swift */; };
+		F931EDE91DE4E9C70013EE83 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F983AC721DAC926C002CAA2B /* Settings.swift */; };
+		F931EDEA1DE4E9D70013EE83 /* CoordinateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F909ECD61D91CA4E00EBF45F /* CoordinateFormatter.swift */; };
 		F983AC731DAC926C002CAA2B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F983AC721DAC926C002CAA2B /* Settings.swift */; };
 		F98440D51DA0CC86004C5C73 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98440D41DA0CC86004C5C73 /* SettingsTableViewController.swift */; };
 		F9CA5EEC1D9F6DF300CD528E /* CoordinateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CA5EEB1D9F6DF300CD528E /* CoordinateFormatterTests.swift */; };
@@ -360,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F931EDEA1DE4E9D70013EE83 /* CoordinateFormatter.swift in Sources */,
+				F931EDE91DE4E9C70013EE83 /* Settings.swift in Sources */,
 				F931EDE81DE4DF8A0013EE83 /* AltitudeFormatter.swift in Sources */,
 				F9D38F2C1D8B8927000B2FE6 /* TodayViewController.swift in Sources */,
 			);
