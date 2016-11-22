@@ -25,23 +25,38 @@ class AltitudeFormatter: NumberFormatter {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func mutableAttributtedString(from altitude: Double) -> NSMutableAttributedString {
+
+    /// Returns a string containing the formatted value of the provided
+    /// number object representing altitude.
+    ///
+    /// - Parameter number: altitude in meters
+    /// - Returns: A string containing the formatted value of altitude number
+    ///            using the receiver’s current settings.
+    override func string(from altitude: NSNumber) -> String? {
 
         var unitString: String
         var convertedAltitude: Double
         switch unit {
         case UnitLength.meters:
             unitString = " m"
-            convertedAltitude = altitude
+            convertedAltitude = Double(altitude)
         case UnitLength.feet:
             unitString = " ft"
-            convertedAltitude = altitude * 3.28084
+            convertedAltitude = Double(altitude) * 3.28084
         default:
             fatalError("Not implemented")
         }
 
-        let altitudeStr = self.string(from: NSNumber(value: convertedAltitude))! + unitString
+        if let formattedNumber = super.string(from: NSNumber(value: convertedAltitude)) {
+            return formattedNumber + unitString
+        }
+
+        return nil
+    }
+    
+    func mutableAttributtedString(from altitude: Double) -> NSMutableAttributedString {
+
+        let altitudeStr = self.string(from: NSNumber(value: altitude))!
         
         // if the altitude string has a decimal, make it smaller
         let altitudeString = NSMutableAttributedString(string: altitudeStr)
