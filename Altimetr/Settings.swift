@@ -10,6 +10,8 @@ import Foundation
 
 class Settings {
 
+    let sharedDefaults = UserDefaults(suiteName: "group.com.glegrain.Altimetr")!
+
     fileprivate struct Keys {
         static let coordinatesFormat = "coordinatesFormat"
         static let unit = "unit"
@@ -19,7 +21,7 @@ class Settings {
         get {
             // Attempt to load user preferences
             // NOTE: UserDefaults caches the information
-            if let unitName = UserDefaults.standard.string(forKey: Keys.unit) {
+            if let unitName = sharedDefaults.string(forKey: Keys.unit) {
                 if unitName == "meters" {
                     return .meters
                 } else if unitName == "feet" {
@@ -30,7 +32,7 @@ class Settings {
         } set {
             // Update user defaults
             let unitName = (newValue == .meters) ? "meters" : "feet"
-            UserDefaults.standard.set(unitName, forKey: Keys.unit)
+            sharedDefaults.set(unitName, forKey: Keys.unit)
         }
     }
 
@@ -38,7 +40,7 @@ class Settings {
     var coordinatesFormat: CoordinateFormatter.NSFormattingFormatStyle {
         get {
             // NOTE: UserDefaults caches the information
-            let formatIndex = UserDefaults.standard.integer(forKey: Keys.coordinatesFormat)
+            let formatIndex = sharedDefaults.integer(forKey: Keys.coordinatesFormat)
             switch formatIndex {
             case 0:
                 return CoordinateFormatter.NSFormattingFormatStyle.degreesMinutesSeconds
@@ -60,7 +62,7 @@ class Settings {
             case .decimalDegrees:
                 formatIndex = 2
             }
-            UserDefaults.standard.set(formatIndex, forKey: Keys.coordinatesFormat)
+            sharedDefaults.set(formatIndex, forKey: Keys.coordinatesFormat)
         }
     }
 }

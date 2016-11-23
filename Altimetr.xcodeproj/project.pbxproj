@@ -79,6 +79,8 @@
 		F931CF671909118800D92AB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F983AC721DAC926C002CAA2B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		F98440D41DA0CC86004C5C73 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F99983431DE6386E00D16880 /* Altimetr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Altimetr.entitlements; sourceTree = "<group>"; };
+		F99983441DE6388C00D16880 /* Altimetr Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Altimetr Today.entitlements"; sourceTree = "<group>"; };
 		F9CA5EEB1D9F6DF300CD528E /* CoordinateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateFormatterTests.swift; sourceTree = "<group>"; };
 		F9D38F141D8B8865000B2FE6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F9D38F281D8B8927000B2FE6 /* Altimetr Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Altimetr Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 		F931CF38190910D300D92AB4 /* Altimetr */ = {
 			isa = PBXGroup;
 			children = (
+				F99983431DE6386E00D16880 /* Altimetr.entitlements */,
 				F931CF44190910D300D92AB4 /* Main.storyboard */,
 				F9FDBD5D1D8F0D8D0001CD31 /* Launch Screen.storyboard */,
 				F9FDBD421D8EB4C60001CD31 /* AppDelegate.swift */,
@@ -190,6 +193,7 @@
 		F9D38F2A1D8B8927000B2FE6 /* Altimetr Today */ = {
 			isa = PBXGroup;
 			children = (
+				F99983441DE6388C00D16880 /* Altimetr Today.entitlements */,
 				F9D38F2B1D8B8927000B2FE6 /* TodayViewController.swift */,
 				F9D38F2D1D8B8927000B2FE6 /* MainInterface.storyboard */,
 				F9D38F301D8B8927000B2FE6 /* Info.plist */,
@@ -280,11 +284,21 @@
 						DevelopmentTeam = PXD42KA43G;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F9D38F271D8B8927000B2FE6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = PXD42KA43G;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F9FDBD4D1D8EE9620001CD31 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -513,6 +527,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Altimetr/Altimetr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PXD42KA43G;
@@ -536,6 +551,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Altimetr/Altimetr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PXD42KA43G;
@@ -558,6 +574,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Altimetr Today/Altimetr Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -581,6 +598,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "Altimetr Today/Altimetr Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

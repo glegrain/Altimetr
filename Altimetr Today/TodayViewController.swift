@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     @IBOutlet weak var altitudeLabel: UILabel!
     
     fileprivate var locationManager = CLLocationManager()
+    fileprivate let altitudeFormatter = AltitudeFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
+        altitudeFormatter.unit = Settings().distanceUnit
         completionHandler(NCUpdateResult.newData)
     }
     
@@ -50,8 +52,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let altitude = locations.last?.altitude {
-            let numberFormatter = NumberFormatter()
-            altitudeLabel.text = numberFormatter.string(from: NSNumber(value: altitude))! + " m"
+            altitudeLabel.text = altitudeFormatter.string(from: NSNumber(value: altitude))!
         }
     }
     
