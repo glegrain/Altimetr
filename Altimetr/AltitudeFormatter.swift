@@ -34,20 +34,20 @@ class AltitudeFormatter: NumberFormatter {
     ///            using the receiver’s current settings.
     override func string(from altitude: NSNumber) -> String? {
 
+        var altitudeMeasurement = Measurement(value: altitude.doubleValue, unit: UnitLength.meters)
         var unitString: String
-        var convertedAltitude: Double
         switch unit {
         case UnitLength.meters:
             unitString = " m"
-            convertedAltitude = Double(altitude)
         case UnitLength.feet:
             unitString = " ft"
-            convertedAltitude = Double(altitude) * 3.28084
+            altitudeMeasurement.convert(to: .feet)
         default:
             fatalError("Not implemented")
         }
+        // TODO: test description
 
-        if let formattedNumber = super.string(from: NSNumber(value: convertedAltitude)) {
+        if let formattedNumber = super.string(from: NSNumber(value: altitudeMeasurement.value)) {
             return formattedNumber + unitString
         }
 
@@ -63,14 +63,14 @@ class AltitudeFormatter: NumberFormatter {
         let decimalSeparatorsSet = CharacterSet(charactersIn: self.decimalSeparator!)
         if let decimalSeparatorRange = altitudeStr.rangeOfCharacter(from: decimalSeparatorsSet) {
             let decimalSeparatorPosition =
-                altitudeStr.characters.distance(
+                altitudeStr.distance(
                     from: altitudeStr.startIndex,
                     to: decimalSeparatorRange.lowerBound
             )
             let rangeToChange = NSMakeRange(decimalSeparatorPosition, 1 + maximumFractionDigits)
             altitudeString.addAttribute(
-                NSFontAttributeName,
-                value: UIFont.systemFont(ofSize: 30, weight: UIFontWeightUltraLight),
+                NSAttributedString.Key.font,
+                value: UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.ultraLight),
                 range: rangeToChange
             )
         }

@@ -11,7 +11,7 @@ import XCTest
 
 class AltitudeFormatterTests: XCTestCase {
 
-    fileprivate let font = UIFont.systemFont(ofSize: 30, weight: UIFontWeightUltraLight)
+    fileprivate let font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.ultraLight)
 
     override func setUp() {
         super.setUp()
@@ -35,7 +35,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedString(from: 3.14159)
         let expected = NSMutableAttributedString(string: "3.1 m")
-        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(1, 2))
+        expected.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(1, 2))
         XCTAssert(output.isEqual(to: expected))
     }
     
@@ -50,7 +50,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedString(from: 4122.1)
         let expected = NSMutableAttributedString(string: "4,122.1 m")
-        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
+        expected.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqual(to: expected))
     }
     
@@ -58,7 +58,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedString(from: 1000.1)
         let expected = NSMutableAttributedString(string: "1,000.1 m")
-        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
+        expected.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqual(to: expected))
     }
     
@@ -73,7 +73,7 @@ class AltitudeFormatterTests: XCTestCase {
         let altitudeFormatter = AltitudeFormatter()
         let output = altitudeFormatter.mutableAttributtedString(from: 1000.09)
         let expected = NSMutableAttributedString(string: "1,000.1 m")
-        expected.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(5, 2))
+        expected.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(5, 2))
         XCTAssert(output.isEqual(to: expected))
     }
 

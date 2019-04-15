@@ -76,7 +76,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         // Set fake altitude and location for simulator
-        #if (arch(i386) || arch(x86_64)) && os(iOS)
+        #if targetEnvironment(simulator)
             let fakeLocation = CLLocation(
                 coordinate: CLLocationCoordinate2D(latitude: 45.934613, longitude: 6.970240),
                 altitude: 4122.3,
@@ -93,7 +93,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var alert: UIAlertController
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
@@ -154,8 +154,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             // Replace altitude label with a "No data" text
             let attributes = [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 17),
-                NSForegroundColorAttributeName: UIColor.darkGray
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17),
+                NSAttributedString.Key.foregroundColor: UIColor.darkGray
             ]
             return NSAttributedString(string: "No data", attributes: attributes)
         }

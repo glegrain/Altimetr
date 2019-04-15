@@ -41,7 +41,7 @@ class CoordinateFormatter: Formatter {
             south = "S"
             east = "E"
             west = "W"
-        case .medium, .long:
+        default:
             north = "north"
             south = "south"
             east = "east"
